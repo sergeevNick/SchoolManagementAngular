@@ -1,0 +1,21 @@
+<h2>Просмотр оценок</h2>
+
+<div class="menu">
+  <p>Выберите класс</p>
+  <select [(ngModel)]="selectedGrade" (ngModelChange)="getStudentsAndSubjects()">
+    <ng-container *ngFor="let grade of grades">
+      <option [ngValue]="grade">{{grade.number}}</option>
+    </ng-container>
+  </select>
+  
+  <p>Выберите ученика</p>
+  <select  [(ngModel)]="selectedStudent">
+    <ng-container *ngFor="let student of students">
+      <option [ngValue]="student">{{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}</option>
+    </ng-container>
+  </select>
+</div>
+
+<div>
+  <app-marks-table [student]="selectedStudent" [subjects]="subjects"></app-marks-table>
+</div>

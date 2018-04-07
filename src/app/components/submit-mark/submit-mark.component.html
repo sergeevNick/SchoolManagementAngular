@@ -1,0 +1,49 @@
+<h2>Выставление оценок</h2>
+
+<div class="submitMarkMenu">
+
+  <p>Выберите класс</p>
+  <select [(ngModel)]="selectedGrade" (ngModelChange)="getStudentsAndSubjects()">
+    <ng-container *ngFor="let grade of grades">
+      <option [ngValue]="grade">{{grade.number}}</option>
+    </ng-container>
+  </select>
+  
+  <p>Выберите ученика</p>
+  <select  [(ngModel)]="selectedStudent" (ngModelChange)="getStudentMarks()">
+    <ng-container *ngFor="let student of students">
+      <option [ngValue]="student">{{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}</option>
+    </ng-container>
+  </select>
+
+  <p>Выберите предмет</p>
+  <select  [(ngModel)]="selectedSubject" (ngModelChange)="getStudentMarks()">
+    <ng-container *ngFor="let subject of subjects">
+      <option [ngValue]="subject">{{subject.name}}</option>
+    </ng-container>
+  </select>
+</div>
+
+<div class="marksTable">
+  <table *ngIf="selectedSubject">
+    <tr>
+      <th>Предмет</th>
+      <th>Оценки</th>
+    </tr>
+    <tr>
+      <td>{{selectedSubject.name}}</td>
+      <td *ngFor="let mark of marks">
+        {{mark.value}}
+        <button type="button" (click)="deleteMark(mark.markId)">x</button>
+      </td>
+      <div class="submitMark">
+        <select [(ngModel)]="selectedValue">
+          <ng-container *ngFor="let value of valuesOfMark">
+            <option [ngValue]="value">{{value}}</option>
+          </ng-container>
+        </select>
+        <button type="button" (click)="addMark()">Выставить оценку</button>
+      </div>
+    </tr>
+  </table>
+</div>

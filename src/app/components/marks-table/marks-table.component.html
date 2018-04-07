@@ -1,0 +1,14 @@
+<div class="marksTable">
+  <table>
+    <tr>
+      <th>Предмет</th>
+      <th>Оценки</th>
+    </tr>
+    <tr *ngFor="let struct of markStructList">
+      <td>{{struct.subject.name}}</td>
+      <td *ngFor="let mark of struct.marks">
+        {{mark.value}}
+      </td>
+    </tr>
+  </table>
+</div>
