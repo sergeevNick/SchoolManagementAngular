@@ -10,6 +10,8 @@ import { SchoolService } from '../../services/school.service';
 })
 
 export class SubmitMarkComponent implements OnInit {
+  title = 'Выставление оценок';
+
   selectedStudent: any;
   selectedGrade: any;
   selectedSubject: any;

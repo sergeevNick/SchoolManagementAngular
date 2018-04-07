@@ -1,5 +1,5 @@
 <div class="schedule">
-  <h2>Расписание занятий</h2>
+  <h2>{{title}}</h2>
   <p>Выберите класс</p>
   <select [(ngModel)]="selectedGradeId" (ngModelChange)="getSchedule()">
     <ng-container *ngFor="let grade of grades">

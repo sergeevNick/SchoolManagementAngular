@@ -9,6 +9,8 @@ import { SchoolService } from '../../services/school.service';
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
+  title = 'Просмотр оценок';
+
   selectedStudent: any;
   selectedGrade: any;
   grades: any[];
