@@ -10,26 +10,26 @@
 
   <div *ngIf="schedules" grade="scheduleTable">
     <ng-container *ngFor="let schedule of schedules">
-    <h3>{{schedule.day.dayName}}</h3>
-    <table>
-      <tr>
-        <th>Урок</th>
-        <th>Начало</th>
-        <th>Конец</th>
-        <th>Предмет</th>
-        <th >Учитель</th>
-        <th>Кабинет</th>
-      </tr>
-      <tr *ngFor="let row of schedule.rows">
-        <td>{{row.lesson.lessonId}}</td>
-        <td>{{row.lesson.startTime}}</td>
-        <td>{{row.lesson.endTime}}</td>
-        <td>{{row.subject.name}}</td>
-        <td>{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</td>
-      
-        <td>{{row.subject.room}}</td>
-      </tr>
-    </table>
-  </ng-container>
+      <h3>{{schedule.day.dayName}}</h3>
+      <table>
+        <tr>
+          <th>Урок</th>
+          <th>Начало</th>
+          <th>Конец</th>
+          <th>Предмет</th>
+          <th>Учитель</th>
+          <th>Кабинет</th>
+        </tr>
+        <tr *ngFor="let row of schedule.rows">
+          <td>{{row.lesson.lessonId}}</td>
+          <td>{{row.lesson.startTime}}</td>
+          <td>{{row.lesson.endTime}}</td>
+          <td>{{row.subject.name}}</td>
+          <td>{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</td>
+
+          <td>{{row.subject.room}}</td>
+        </tr>
+      </table>
+    </ng-container>
   </div>
 </div>

@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { SchoolService } from '../../services/school.service';
+import { GradeService } from '../../services/grade.service';
+import { ScheduleService } from '../../services/schedule.service';
 
 
 @Component({
-  selector: 'app-schedule',
-  templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss']
+    selector: 'app-schedule',
+    templateUrl: './schedule.component.html',
+    styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
-  title = 'Расписание';
+    title = 'Расписание';
 
-  selectedGradeId: any;
-  grades: any[];
-  schedules: any[] = [];
+    selectedGradeId: any;
+    grades: any[] = [];
+    schedules: any[] = [];
 
-  constructor(private service: SchoolService) { 
-    this.service.getGrades().then((grades: any[]) => {
-      this.grades = grades;
-      //this.selectedGradeId = grades[0].gradeId;
-    });
-  }
+    constructor(private gradeService: GradeService,
+        private scheduleService: ScheduleService) {
+        this.gradeService.getGrades().then((grades: any[]) => {
+            this.grades = grades;
+        });
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  getSchedule() {
-    this.service.getSchedule(this.selectedGradeId).then((schedules: any[]) => {
-      this.schedules = schedules;
-    });
-  }
+    getSchedule() {
+        this.scheduleService.getSchedule(this.selectedGradeId).then((schedules: any[]) => {
+            console.log(schedules);
+            this.schedules = schedules;
+        });
+    }
 }

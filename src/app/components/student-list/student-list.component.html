@@ -7,9 +7,9 @@
       <option [ngValue]="grade">{{grade.number}}</option>
     </ng-container>
   </select>
-  
+
   <p>Выберите ученика</p>
-  <select  [(ngModel)]="selectedStudent">
+  <select [(ngModel)]="selectedStudent">
     <ng-container *ngFor="let student of students">
       <option [ngValue]="student">{{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}</option>
     </ng-container>

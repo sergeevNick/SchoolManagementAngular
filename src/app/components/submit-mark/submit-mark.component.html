@@ -8,16 +8,16 @@
       <option [ngValue]="grade">{{grade.number}}</option>
     </ng-container>
   </select>
-  
+
   <p>Выберите ученика</p>
-  <select  [(ngModel)]="selectedStudent" (ngModelChange)="getStudentMarks()">
+  <select [(ngModel)]="selectedStudent" (ngModelChange)="getStudentMarks()">
     <ng-container *ngFor="let student of students">
       <option [ngValue]="student">{{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}</option>
     </ng-container>
   </select>
 
   <p>Выберите предмет</p>
-  <select  [(ngModel)]="selectedSubject" (ngModelChange)="getStudentMarks()">
+  <select [(ngModel)]="selectedSubject" (ngModelChange)="getStudentMarks()">
     <ng-container *ngFor="let subject of subjects">
       <option [ngValue]="subject">{{subject.name}}</option>
     </ng-container>

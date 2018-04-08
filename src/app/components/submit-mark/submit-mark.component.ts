@@ -1,75 +1,82 @@
 import { Component, OnInit } from '@angular/core';
-import { SchoolService } from '../../services/school.service';
+import { GradeService } from '../../services/grade.service';
+import { StudentService } from '../../services/student.service';
+import { SubjectService } from '../../services/subject.service';
+import { MarkService } from '../../services/mark.service';
 
 
 
 @Component({
-  selector: 'app-submit-mark',
-  templateUrl: './submit-mark.component.html',
-  styleUrls: ['./submit-mark.component.scss']
+    selector: 'app-submit-mark',
+    templateUrl: './submit-mark.component.html',
+    styleUrls: ['./submit-mark.component.scss']
 })
 
 export class SubmitMarkComponent implements OnInit {
-  title = 'Выставление оценок';
+    title = 'Выставление оценок';
 
-  selectedStudent: any;
-  selectedGrade: any;
-  selectedSubject: any;
-  grades: any[];
-  students: any[];
-  subjects: any[];
-  marks: any[];
+    selectedStudent: any;
+    selectedGrade: any;
+    selectedSubject: any;
+    grades: any[] = [];
+    students: any[] = [];
+    subjects: any[] = [];
+    marks: any[] = [];
 
-  valuesOfMark: Number[] = [2, 3, 4, 5];
-  selectedValue: Number;
+    valuesOfMark: Number[] = [2, 3, 4, 5];
+    selectedValue: Number;
 
-  constructor(private service: SchoolService) {
-    this.service.getGrades().then((grades: any[]) => {
-      this.grades = grades;
-    });
-  };
-
-  getStudentsAndSubjects() {
-    this.service.getStudents(this.selectedGrade.gradeId).then((students: any[]) => {
-      this.students = students;
-      this.selectedStudent = students[0];
-    });
-
-    this.service.getSubjects(this.selectedGrade.gradeId).then((subjects: any[]) => {
-      this.subjects = subjects;
-      this.selectedSubject = subjects[0];
-    });
-  }
-
-  getStudentMarks() {
-    if (this.selectedSubject && this.selectedStudent) {
-      this.service.getMarks(this.selectedStudent.studentId, this.selectedSubject.subjectId).then((marks: any[]) => {
-        this.marks = marks;
-      });
-    }
-  }
-
-
-  addMark() {
-    if (this.selectedStudent && this.selectedSubject) {
-      this.service.addMark(this.selectedStudent.studentId, this.selectedSubject.subjectId, this.selectedValue)
-        .then((res: any) => {
-          this.marks.push(res);
+    constructor(private gradeService: GradeService,
+        private studentService: StudentService,
+        private subjectService: SubjectService,
+        private markService: MarkService) {
+        this.gradeService.getGrades().then((grades: any[]) => {
+            this.grades = grades;
         });
     }
-  }
 
-  deleteMark(selectedMarkId) {
-    this.service.deleteMark(selectedMarkId).then(res => {
-      this.marks = this.marks
-        .filter(mark => mark.markId !== selectedMarkId);
-    })
-      .catch(error => console.log(error));
-  }
+    getStudentsAndSubjects() {
+        this.studentService.getStudents(this.selectedGrade.gradeId).then((students: any[]) => {
+            this.students = students;
+            this.selectedStudent = students[0];
+            console.log(this.selectedStudent);
+        });
+
+        this.subjectService.getSubjects(this.selectedGrade.gradeId).then((subjects: any[]) => {
+            this.subjects = subjects;
+        });
+    }
+
+    getStudentMarks() {
+        console.log('in func', this.selectedSubject, this.selectedStudent);
+        if (this.selectedSubject && this.selectedStudent) {
+            this.markService.getMarks(this.selectedStudent.studentId, this.selectedSubject.subjectId)
+                .then((marks: any[]) => {
+                    console.log(marks);
+                    this.marks = marks;
+                });
+        }
+    }
 
 
+    addMark() {
+        if (this.selectedStudent && this.selectedSubject) {
+            this.markService.addMark(this.selectedStudent.studentId, this.selectedSubject.subjectId, this.selectedValue)
+                .then((res: any) => {
+                    this.marks.push(res);
+                });
+        }
+    }
 
-  ngOnInit() {
-  }
+    deleteMark(selectedMarkId) {
+        this.markService.deleteMarkByMarkId(selectedMarkId)
+            .then(res => {
+                this.marks = this.marks
+                    .filter(mark => mark.markId !== selectedMarkId);
+            });
+    }
+
+    ngOnInit() {
+    }
 
 }
