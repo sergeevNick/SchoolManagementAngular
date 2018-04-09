@@ -1,35 +1,35 @@
 <div class="schedule">
-  <h2>{{title}}</h2>
-  <p>Выберите класс</p>
-  <select [(ngModel)]="selectedGradeId" (ngModelChange)="getSchedule()">
-    <ng-container *ngFor="let grade of grades">
-      <option [value]="grade.gradeId">{{grade.number}}</option>
-    </ng-container>
-  </select>
 
+    <h2 class="schedule__title-h2">{{title}}</h2>
 
-  <div *ngIf="schedules" grade="scheduleTable">
-    <ng-container *ngFor="let schedule of schedules">
-      <h3>{{schedule.day.dayName}}</h3>
-      <table>
-        <tr>
-          <th>Урок</th>
-          <th>Начало</th>
-          <th>Конец</th>
-          <th>Предмет</th>
-          <th>Учитель</th>
-          <th>Кабинет</th>
-        </tr>
-        <tr *ngFor="let row of schedule.rows">
-          <td>{{row.lesson.lessonId}}</td>
-          <td>{{row.lesson.startTime}}</td>
-          <td>{{row.lesson.endTime}}</td>
-          <td>{{row.subject.name}}</td>
-          <td>{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</td>
+    <div class="schedule-class-menu">
+        <p class="schedule-class-menu__text">Выберите класс</p>
+        <select class="schedule-class-menu__select" [(ngModel)]="selectedGradeId" (ngModelChange)="getSchedule()">
+            <ng-container *ngFor="let grade of grades">
+                <option class="schedule-class-menu__option" [value]="grade.gradeId">{{grade.number}}</option>
+            </ng-container>
+        </select>
+    </div>
 
-          <td>{{row.subject.room}}</td>
-        </tr>
-      </table>
-    </ng-container>
-  </div>
+    <div class="schedule-table">
+        <ng-container *ngFor="let schedule of schedules">
+            <h3 class="schedule-table__title-h3">{{schedule.day.dayName}}</h3>
+            <div class="schedule-table__head-row">
+                <div class="schedule-table__cell">Урок</div>
+                <div class="schedule-table__cell">Начало</div>
+                <div class="schedule-table__cell">Конец</div>
+                <div class="schedule-table__cell">Предмет</div>
+                <div class="schedule-table__cell">Учитель</div>
+                <div class="schedule-table__cell">Кабинет</div>
+            </div>
+            <div class="schedule-table__row" *ngFor="let row of schedule.rows">
+                <div class="schedule-table__cell">{{row.lesson.lessonId}}</div>
+                <div class="schedule-table__cell">{{row.lesson.startTime}}</div>
+                <div class="schedule-table__cell">{{row.lesson.endTime}}</div>
+                <div class="schedule-table__cell">{{row.subject.name}}</div>
+                <div class="schedule-table__cell">{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</div>
+                <div class="schedule-table__cell">{{row.subject.room}}</div>
+            </div>
+        </ng-container>
+    </div>
 </div>

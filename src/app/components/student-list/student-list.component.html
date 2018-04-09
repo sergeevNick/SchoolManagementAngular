@@ -1,21 +1,28 @@
-<h2>{{title}}</h2>
+<div class="student-list">
 
-<div class="menu">
-  <p>Выберите класс</p>
-  <select [(ngModel)]="selectedGrade" (ngModelChange)="getStudentsAndSubjects()">
-    <ng-container *ngFor="let grade of grades">
-      <option [ngValue]="grade">{{grade.number}}</option>
-    </ng-container>
-  </select>
+    <h2 class="student-list__title-h2">{{title}}</h2>
 
-  <p>Выберите ученика</p>
-  <select [(ngModel)]="selectedStudent">
-    <ng-container *ngFor="let student of students">
-      <option [ngValue]="student">{{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}</option>
-    </ng-container>
-  </select>
-</div>
+    <div class="student-list-menu">
+        <div class="select-menu">
+            <p class="select-menu__text">Выберите класс</p>
+            <select class="select-menu__select" [(ngModel)]="selectedGrade" (ngModelChange)="getStudentsAndSubjects()">
+                <ng-container *ngFor="let grade of grades">
+                    <option class="select-menu__item" [ngValue]="grade">{{grade.number}}</option>
+                </ng-container>
+            </select>
+        </div>
 
-<div>
-  <app-marks-table [student]="selectedStudent" [subjects]="subjects"></app-marks-table>
+        <div class="select-menu">
+            <p class="select-menu__text">Выберите ученика</p>
+            <select class="select-menu__select" [(ngModel)]="selectedStudent">
+                <ng-container *ngFor="let student of students">
+                    <option class="select-menu__item" [ngValue]="student">
+                        {{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+    </div>
+
+    <app-marks-table [student]="selectedStudent" [subjects]="subjects"></app-marks-table>
 </div>

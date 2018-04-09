@@ -1,12 +1,33 @@
-.menu > select {
+.select-menu__select {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.menu > p{
+.select-menu__text {
     display: inline-block;
 }
 
-h2, h3 {
+.student-list__title-h2 {
     text-align: center;
 }
+
+.schedule-table {
+    display: table;         
+    width: auto;         
+    background-color: #eee;         
+    border: 1px solid #666666;         
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+  }
+
+  .schedule-table__head-row, .schedule-table__row {
+    display: table-row;
+    width: auto;
+    clear: both;
+  }
+
+  .schedule-table__cell {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;         
+    width: 200px;         
+    background-color: #ccc;  
+  }

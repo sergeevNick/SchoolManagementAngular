@@ -7,6 +7,29 @@ td {
     float: right;
 }
 
-h2, h3 {
+.select-menu__text{
+    display: inline-block;
+}
+
+.submit-mark__title-h2 {
     text-align: center;
 }
+
+.marks-table {
+    display: table;         
+    width: auto;         
+    background-color: #eee;         
+    border: 1px solid #666666;         
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+  }
+  .marks-table__head-row, .marks-table__row {
+    display: table-row;
+    width: auto;
+    clear: both;
+  }
+  .marks-table__cell {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;         
+    width: 200px;         
+    background-color: #ccc;  
+  }

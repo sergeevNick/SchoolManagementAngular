@@ -39,7 +39,6 @@ export class SubmitMarkComponent implements OnInit {
         this.studentService.getStudents(this.selectedGrade.gradeId).then((students: any[]) => {
             this.students = students;
             this.selectedStudent = students[0];
-            console.log(this.selectedStudent);
         });
 
         this.subjectService.getSubjects(this.selectedGrade.gradeId).then((subjects: any[]) => {
@@ -48,11 +47,9 @@ export class SubmitMarkComponent implements OnInit {
     }
 
     getStudentMarks() {
-        console.log('in func', this.selectedSubject, this.selectedStudent);
         if (this.selectedSubject && this.selectedStudent) {
             this.markService.getMarks(this.selectedStudent.studentId, this.selectedSubject.subjectId)
                 .then((marks: any[]) => {
-                    console.log(marks);
                     this.marks = marks;
                 });
         }

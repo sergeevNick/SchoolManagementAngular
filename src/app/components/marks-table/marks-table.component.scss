@@ -1,8 +1,38 @@
-td {
-    border: 1px solid #999;
-    padding: 5px;
+@import "../../common/styles/base";
+
+.marks-table {
+    display: table;         
+    width: auto;   
+  }
+
+.marks-table__head-row {
+    font-weight: bold;
+    display: table-row;
+    width: max-content;
+    clear: both;
+}
+  
+.marks-table__row {
+    display: table-row;
+    width: auto;
+    clear: both;
+    margin-top: 3px;
 }
 
-.submitMark {
-    float: right;
+.marks-table__cell-subject {
+    float: left;
+    display: table-column;         
+    width: 150px;         
+    border: 1px solid $border-color;
+    margin: inherit;
+    padding: 3px;
+}
+
+.marks-table__cell {
+    float: left;
+    display: table-column;      
+    border: 1px solid $border-color;
+    padding: 3px;
+    margin: inherit;
+    margin-left: 3px;
 }
