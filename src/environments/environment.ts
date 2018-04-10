@@ -4,8 +4,27 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  urls: {
-    api: 'http://localhost:8080/'
-  }
+    production: false,
+    urls: {
+        api: 'http://localhost:4200/assets/data',
+        school: {
+            grades: {
+                getAll: '/grades.json'
+            },
+            subjects: {
+                getSubjectsByGradeId: '/grades.:gradeId.subjects.json'
+            },
+            students: {
+                getStudentsByGradeId: '/grades.:gradeId.students.json'
+            },
+            marks: {
+                getMarkByStudentIdAndSubjectId: '/marks.students.:studentId.subjects.:subjectId.json',
+                addMark: '/marks.students.:studentId.subjects.:subjectId.json',
+                deleteMarkByMarkId: '/marks.:markId.json'
+            },
+            schedule: {
+                getScheduleByClassId: '/grades.:gradeId.schedule.json'
+            }
+        }
+    }
 };
