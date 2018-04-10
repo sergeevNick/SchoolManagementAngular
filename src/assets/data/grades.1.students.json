@@ -1,0 +1,17 @@
+[
+    {
+        "studentId": 1,
+        "name": {
+            "nameId": 1,
+            "firstName": "Никита",
+            "secondName": "Сергеев",
+            "lastName": "Николаевич"
+        },
+        "otherInfo": {
+            "infoId": 1,
+            "email": "email",
+            "address": "СПб",
+            "birthDate": "1997-03-23"
+        }
+    }
+]

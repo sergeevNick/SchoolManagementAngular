@@ -1,0 +1,22 @@
+[
+    {
+        "subjectId": 1,
+        "name": "География",
+        "room": 59
+    },
+    {
+        "subjectId": 2,
+        "name": "История",
+        "room": 28
+    },
+    {
+        "subjectId": 3,
+        "name": "Обществознание",
+        "room": 88
+    },
+    {
+        "subjectId": 4,
+        "name": "Информатика",
+        "room": 22
+    }
+]
