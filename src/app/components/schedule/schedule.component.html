@@ -24,7 +24,7 @@
             </div>
             <div class="schedule-table__row" *ngFor="let row of schedule.rows">
                 <div class="schedule-table__cell">{{row.lesson.lessonId}}</div>
-                <div class="schedule-table__cell">{{row.lesson.startTime}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_small">{{row.lesson.startTime}}</div>
                 <div class="schedule-table__cell">{{row.lesson.endTime}}</div>
                 <div class="schedule-table__cell">{{row.subject.name}}</div>
                 <div class="schedule-table__cell">{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { isDevMode } from '@angular/core';
 
 @Injectable()
 export class DataLoaderService {
@@ -20,12 +20,21 @@ export class DataLoaderService {
     }
 
     post(apiURL: string, body: any): Promise<any> {
-        return this.http.post(apiURL, body, this.httpOptions)
-            .toPromise();
+        if (!isDevMode) {
+            return this.http.post(apiURL, body, this.httpOptions)
+                .toPromise();
+        } else {
+            return this.http.get(apiURL)
+                .toPromise();
+        }
     }
-
     delete(apiURL: string): Promise<any> {
-        return this.http.delete(apiURL)
-            .toPromise();
+        if (!isDevMode) {
+            return this.http.delete(apiURL)
+                .toPromise();
+        } else {
+            return this.http.get(apiURL)
+                .toPromise();
+        }
     }
 }

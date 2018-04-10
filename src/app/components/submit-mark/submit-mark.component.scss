@@ -1,11 +1,4 @@
-td {
-    border: 1px solid #999;
-    padding: 5px;
-}
-
-.submitMark {
-    float: right;
-}
+@import "../../common/styles/base";
 
 .select-menu__text{
     display: inline-block;
@@ -18,8 +11,8 @@ td {
 .marks-table {
     display: table;         
     width: auto;         
-    background-color: #eee;         
-    border: 1px solid #666666;         
+    background-color: $marks-table-border-color;         
+    border: 1px solid $marks-table-background-color;         
     border-spacing: 5px; /* cellspacing:poor IE support for  this */
   }
   .marks-table__head-row, .marks-table__row {
@@ -31,5 +24,5 @@ td {
     float: left; /* fix for  buggy browsers */
     display: table-column;         
     width: 200px;         
-    background-color: #ccc;  
+    background-color: $cell-background-color;  
   }

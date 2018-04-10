@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DataLoaderService } from './data-loader.service';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class GradeService {

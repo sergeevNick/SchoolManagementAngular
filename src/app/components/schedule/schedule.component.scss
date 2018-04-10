@@ -7,15 +7,15 @@
 .schedule-table {
     display: table;         
     width: auto;   
+
+    &__head-row {
+        font-weight: bold;
+        display: table-row;
+        width: auto;
+        clear: both;
+    }
   }
 
-.schedule-table__head-row {
-    font-weight: bold;
-    display: table-row;
-    width: auto;
-    clear: both;
-}
-  
 .schedule-table__row {
     display: table-row;
     width: auto;
@@ -28,4 +28,15 @@
     width: 100px;         
     border-top: 1px solid $border-color;
     margin-bottom: 2%;
+
+    &_size {
+
+        &_small {
+            width: 40%;
+        }
+
+        &_medium {
+            width: 30%;
+        }
+    }
 }
