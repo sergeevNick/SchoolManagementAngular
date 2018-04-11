@@ -1,0 +1,551 @@
+[
+    {
+        "scheduleId": 6,
+        "day": {
+            "dayId": 1,
+            "dayName": "Понедельник"
+        },
+        "rows": [
+            {
+                "scheduleRowId": 15,
+                "lesson": {
+                    "lessonId": 1,
+                    "startTime": "09:00:00",
+                    "endTime": "09:45:00"
+                },
+                "teacher": {
+                    "teacherId": 1,
+                    "name": {
+                        "nameId": 8,
+                        "firstName": "Инга",
+                        "secondName": "Кулакова",
+                        "lastName": "Святославовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 8,
+                        "email": "email7",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 1,
+                    "name": "Математика",
+                    "room": 65
+                }
+            },
+            {
+                "scheduleRowId": 16,
+                "lesson": {
+                    "lessonId": 2,
+                    "startTime": "09:55:00",
+                    "endTime": "10:40:00"
+                },
+                "teacher": {
+                    "teacherId": 2,
+                    "name": {
+                        "nameId": 9,
+                        "firstName": "Данил",
+                        "secondName": "Новосельцев",
+                        "lastName": "Родионович"
+                    },
+                    "otherInfo": {
+                        "infoId": 9,
+                        "email": "email8",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 2,
+                    "name": "Русский язык",
+                    "room": 98
+                }
+            },
+            {
+                "scheduleRowId": 17,
+                "lesson": {
+                    "lessonId": 3,
+                    "startTime": "11:00:00",
+                    "endTime": "11:45:00"
+                },
+                "teacher": {
+                    "teacherId": 3,
+                    "name": {
+                        "nameId": 10,
+                        "firstName": "Лариса",
+                        "secondName": "Авдеева",
+                        "lastName": "Мечиславовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 10,
+                        "email": "email9",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 3,
+                    "name": "Физкультура",
+                    "room": 2
+                }
+            },
+            {
+                "scheduleRowId": 18,
+                "lesson": {
+                    "lessonId": 4,
+                    "startTime": "12:05:00",
+                    "endTime": "12:50:00"
+                },
+                "teacher": {
+                    "teacherId": 4,
+                    "name": {
+                        "nameId": 11,
+                        "firstName": "Влада",
+                        "secondName": "Чекудаева",
+                        "lastName": "Константиновна"
+                    },
+                    "otherInfo": {
+                        "infoId": 11,
+                        "email": "email10",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 4,
+                    "name": "Физика",
+                    "room": 32
+                }
+            }
+        ]
+    },
+    {
+        "scheduleId": 7,
+        "day": {
+            "dayId": 2,
+            "dayName": "Вторник"
+        },
+        "rows": [
+            {
+                "scheduleRowId": 19,
+                "lesson": {
+                    "lessonId": 1,
+                    "startTime": "09:00:00",
+                    "endTime": "09:45:00"
+                },
+                "teacher": {
+                    "teacherId": 5,
+                    "name": {
+                        "nameId": 12,
+                        "firstName": "Рада",
+                        "secondName": "Зухина",
+                        "lastName": "Ираклиевна"
+                    },
+                    "otherInfo": {
+                        "infoId": 12,
+                        "email": "email11",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 5,
+                    "name": "Алгебра",
+                    "room": 36
+                }
+            },
+            {
+                "scheduleRowId": 20,
+                "lesson": {
+                    "lessonId": 2,
+                    "startTime": "09:55:00",
+                    "endTime": "10:40:00"
+                },
+                "teacher": {
+                    "teacherId": 6,
+                    "name": {
+                        "nameId": 13,
+                        "firstName": "Оксана",
+                        "secondName": "Дёмшина",
+                        "lastName": "Елизаровна"
+                    },
+                    "otherInfo": {
+                        "infoId": 13,
+                        "email": "email12",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 6,
+                    "name": "Геометрия",
+                    "room": 37
+                }
+            },
+            {
+                "scheduleRowId": 21,
+                "lesson": {
+                    "lessonId": 3,
+                    "startTime": "11:00:00",
+                    "endTime": "11:45:00"
+                },
+                "teacher": {
+                    "teacherId": 7,
+                    "name": {
+                        "nameId": 14,
+                        "firstName": "Лилия",
+                        "secondName": "Чепурина",
+                        "lastName": "Брониславовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 14,
+                        "email": "email13",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 7,
+                    "name": "Информатика",
+                    "room": 12
+                }
+            },
+            {
+                "scheduleRowId": 22,
+                "lesson": {
+                    "lessonId": 4,
+                    "startTime": "12:05:00",
+                    "endTime": "12:50:00"
+                },
+                "teacher": {
+                    "teacherId": 8,
+                    "name": {
+                        "nameId": 15,
+                        "firstName": "Лариса",
+                        "secondName": "Урбановская",
+                        "lastName": "Макаровна"
+                    },
+                    "otherInfo": {
+                        "infoId": 15,
+                        "email": "email14",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 8,
+                    "name": "География",
+                    "room": 59
+                }
+            }
+        ]
+    },
+    {
+        "scheduleId": 8,
+        "day": {
+            "dayId": 3,
+            "dayName": "Среда"
+        },
+        "rows": [
+            {
+                "scheduleRowId": 23,
+                "lesson": {
+                    "lessonId": 2,
+                    "startTime": "09:55:00",
+                    "endTime": "10:40:00"
+                },
+                "teacher": {
+                    "teacherId": 1,
+                    "name": {
+                        "nameId": 8,
+                        "firstName": "Инга",
+                        "secondName": "Кулакова",
+                        "lastName": "Святославовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 8,
+                        "email": "email7",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 9,
+                    "name": "ОБЖ",
+                    "room": 44
+                }
+            },
+            {
+                "scheduleRowId": 24,
+                "lesson": {
+                    "lessonId": 3,
+                    "startTime": "11:00:00",
+                    "endTime": "11:45:00"
+                },
+                "teacher": {
+                    "teacherId": 2,
+                    "name": {
+                        "nameId": 9,
+                        "firstName": "Данил",
+                        "secondName": "Новосельцев",
+                        "lastName": "Родионович"
+                    },
+                    "otherInfo": {
+                        "infoId": 9,
+                        "email": "email8",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 10,
+                    "name": "Литература",
+                    "room": 63
+                }
+            },
+            {
+                "scheduleRowId": 25,
+                "lesson": {
+                    "lessonId": 4,
+                    "startTime": "12:05:00",
+                    "endTime": "12:50:00"
+                },
+                "teacher": {
+                    "teacherId": 3,
+                    "name": {
+                        "nameId": 10,
+                        "firstName": "Лариса",
+                        "secondName": "Авдеева",
+                        "lastName": "Мечиславовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 10,
+                        "email": "email9",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 3,
+                    "name": "Физкультура",
+                    "room": 2
+                }
+            },
+            {
+                "scheduleRowId": 26,
+                "lesson": {
+                    "lessonId": 5,
+                    "startTime": "13:00:00",
+                    "endTime": "13:45:00"
+                },
+                "teacher": {
+                    "teacherId": 4,
+                    "name": {
+                        "nameId": 11,
+                        "firstName": "Влада",
+                        "secondName": "Чекудаева",
+                        "lastName": "Константиновна"
+                    },
+                    "otherInfo": {
+                        "infoId": 11,
+                        "email": "email10",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 8,
+                    "name": "География",
+                    "room": 59
+                }
+            },
+            {
+                "scheduleRowId": 27,
+                "lesson": {
+                    "lessonId": 6,
+                    "startTime": "13:55:00",
+                    "endTime": "14:40:00"
+                },
+                "teacher": {
+                    "teacherId": 5,
+                    "name": {
+                        "nameId": 12,
+                        "firstName": "Рада",
+                        "secondName": "Зухина",
+                        "lastName": "Ираклиевна"
+                    },
+                    "otherInfo": {
+                        "infoId": 12,
+                        "email": "email11",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 1,
+                    "name": "Математика",
+                    "room": 65
+                }
+            }
+        ]
+    },
+    {
+        "scheduleId": 9,
+        "day": {
+            "dayId": 4,
+            "dayName": "Четверг"
+        },
+        "rows": [
+            {
+                "scheduleRowId": 28,
+                "lesson": {
+                    "lessonId": 1,
+                    "startTime": "09:00:00",
+                    "endTime": "09:45:00"
+                },
+                "teacher": {
+                    "teacherId": 6,
+                    "name": {
+                        "nameId": 13,
+                        "firstName": "Оксана",
+                        "secondName": "Дёмшина",
+                        "lastName": "Елизаровна"
+                    },
+                    "otherInfo": {
+                        "infoId": 13,
+                        "email": "email12",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 2,
+                    "name": "Русский язык",
+                    "room": 98
+                }
+            },
+            {
+                "scheduleRowId": 29,
+                "lesson": {
+                    "lessonId": 2,
+                    "startTime": "09:55:00",
+                    "endTime": "10:40:00"
+                },
+                "teacher": {
+                    "teacherId": 7,
+                    "name": {
+                        "nameId": 14,
+                        "firstName": "Лилия",
+                        "secondName": "Чепурина",
+                        "lastName": "Брониславовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 14,
+                        "email": "email13",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 3,
+                    "name": "Физкультура",
+                    "room": 2
+                }
+            },
+            {
+                "scheduleRowId": 30,
+                "lesson": {
+                    "lessonId": 3,
+                    "startTime": "11:00:00",
+                    "endTime": "11:45:00"
+                },
+                "teacher": {
+                    "teacherId": 8,
+                    "name": {
+                        "nameId": 15,
+                        "firstName": "Лариса",
+                        "secondName": "Урбановская",
+                        "lastName": "Макаровна"
+                    },
+                    "otherInfo": {
+                        "infoId": 15,
+                        "email": "email14",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 4,
+                    "name": "Физика",
+                    "room": 32
+                }
+            }
+        ]
+    },
+    {
+        "scheduleId": 10,
+        "day": {
+            "dayId": 5,
+            "dayName": "Пятница"
+        },
+        "rows": [
+            {
+                "scheduleRowId": 31,
+                "lesson": {
+                    "lessonId": 1,
+                    "startTime": "09:00:00",
+                    "endTime": "09:45:00"
+                },
+                "teacher": {
+                    "teacherId": 1,
+                    "name": {
+                        "nameId": 8,
+                        "firstName": "Инга",
+                        "secondName": "Кулакова",
+                        "lastName": "Святославовна"
+                    },
+                    "otherInfo": {
+                        "infoId": 8,
+                        "email": "email7",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 5,
+                    "name": "Алгебра",
+                    "room": 36
+                }
+            },
+            {
+                "scheduleRowId": 32,
+                "lesson": {
+                    "lessonId": 2,
+                    "startTime": "09:55:00",
+                    "endTime": "10:40:00"
+                },
+                "teacher": {
+                    "teacherId": 2,
+                    "name": {
+                        "nameId": 9,
+                        "firstName": "Данил",
+                        "secondName": "Новосельцев",
+                        "lastName": "Родионович"
+                    },
+                    "otherInfo": {
+                        "infoId": 9,
+                        "email": "email8",
+                        "address": "СПб",
+                        "birthDate": "1997-03-23"
+                    }
+                },
+                "subject": {
+                    "subjectId": 6,
+                    "name": "Геометрия",
+                    "room": 37
+                }
+            }
+        ]
+    }
+]

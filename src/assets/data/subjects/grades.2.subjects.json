@@ -1,0 +1,17 @@
+[
+    {
+        "subjectId": 4,
+        "name": "Физика",
+        "room": 32
+    },
+    {
+        "subjectId": 5,
+        "name": "Алгебра",
+        "room": 36
+    },
+    {
+        "subjectId": 6,
+        "name": "Геометрия",
+        "room": 37
+    }    
+]

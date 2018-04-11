@@ -1,0 +1,32 @@
+[
+    {
+        "studentId": 6,
+        "name": {
+            "nameId": 6,
+            "firstName": "Николай",
+            "secondName": "Поляков",
+            "lastName": "Русланович"
+        },
+        "otherInfo": {
+            "infoId": 6,
+            "email": "email5",
+            "address": "СПб",
+            "birthDate": "1997-03-23"
+        }
+    },
+    {
+        "studentId": 7,
+        "name": {
+            "nameId": 7,
+            "firstName": "Наталья",
+            "secondName": "Лазарева",
+            "lastName": "Прокловна"
+        },
+        "otherInfo": {
+            "infoId": 7,
+            "email": "email6",
+            "address": "СПб",
+            "birthDate": "1997-03-23"
+        }
+    }
+]
