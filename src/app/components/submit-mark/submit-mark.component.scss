@@ -1,11 +1,13 @@
 @import "../../common/styles/base";
 
-.select-menu__text{
-    display: inline-block;
-}
+.select-menu {
+    &__text{
+        display: inline-block;
+    }
 
-.submit-mark__title-h2 {
-    text-align: center;
+    &__title-h2 {
+        text-align: center;
+    }
 }
 
 .marks-table {
@@ -13,16 +15,44 @@
     width: auto;         
     background-color: $marks-table-border-color;         
     border: 1px solid $marks-table-background-color;         
-    border-spacing: 5px; /* cellspacing:poor IE support for  this */
-  }
-  .marks-table__head-row, .marks-table__row {
-    display: table-row;
-    width: auto;
-    clear: both;
-  }
-  .marks-table__cell {
-    float: left; /* fix for  buggy browsers */
-    display: table-column;         
-    width: 200px;         
-    background-color: $cell-background-color;  
-  }
+    border-spacing: 5px;
+    
+    &__head-row {
+        display: table-row;
+        width: auto;
+        clear: both;
+    }
+
+    &__row {
+        display: table-row;
+        width: auto;
+        clear: both;
+    }
+
+    &__cell {
+        float: left;
+        display: inline-table;      
+        margin: 1px; 
+        background-color: $cell-background-color;  
+       
+        &_size {
+            &_small {
+                width: $table-small-width;
+            }
+    
+            &_medium {
+                width: $table-medium-width;
+            }
+        }
+
+        &_text-align {
+            &_center {
+                text-align: center;
+            }
+    
+            &_right {
+                text-align: right;
+            }
+        }
+    }
+}

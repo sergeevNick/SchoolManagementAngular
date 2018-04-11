@@ -15,20 +15,20 @@
         <ng-container *ngFor="let schedule of schedules">
             <h3 class="schedule-table__title-h3">{{schedule.day.dayName}}</h3>
             <div class="schedule-table__head-row">
-                <div class="schedule-table__cell">Урок</div>
-                <div class="schedule-table__cell">Начало</div>
-                <div class="schedule-table__cell">Конец</div>
-                <div class="schedule-table__cell">Предмет</div>
-                <div class="schedule-table__cell">Учитель</div>
-                <div class="schedule-table__cell">Кабинет</div>
+                <div class="schedule-table__cell schedule-table__cell_size_small">Урок</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">Начало</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">Конец</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">Предмет</div>
+                <div class="schedule-table__cell schedule-table__cell_size_long">Учитель</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">Кабинет</div>
             </div>
             <div class="schedule-table__row" *ngFor="let row of schedule.rows">
-                <div class="schedule-table__cell">{{row.lesson.lessonId}}</div>
-                <div class="schedule-table__cell schedule-table__cell_size_small">{{row.lesson.startTime}}</div>
-                <div class="schedule-table__cell">{{row.lesson.endTime}}</div>
-                <div class="schedule-table__cell">{{row.subject.name}}</div>
-                <div class="schedule-table__cell">{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</div>
-                <div class="schedule-table__cell">{{row.subject.room}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_small">{{row.lesson.lessonId}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.lesson.startTime}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.lesson.endTime}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.subject.name}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_long">{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.subject.room}}</div>
             </div>
         </ng-container>
     </div>

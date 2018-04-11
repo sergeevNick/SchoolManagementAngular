@@ -2,37 +2,48 @@
 
 .marks-table {
     display: table;         
-    width: auto;   
-  }
+    width: auto;  
+    
+    &__head-row {
+        font-weight: bold;
+        display: table-row;
+        width: max-content;
+        clear: both; 
+    }
 
-.marks-table__head-row {
-    font-weight: bold;
-    display: table-row;
-    width: max-content;
-    clear: both;
-}
-  
-.marks-table__row {
-    display: table-row;
-    width: auto;
-    clear: both;
-    margin-top: 3px;
-}
+    &__row {
+        display: table-row;
+        width: auto;
+        clear: both;
+        margin-top: 3px;
+    }
 
-.marks-table__cell-subject {
-    float: left;
-    display: table-column;         
-    width: 150px;         
-    border: 1px solid $border-color;
-    margin: inherit;
-    padding: 3px;
-}
-
-.marks-table__cell {
-    float: left;
-    display: table-column;      
-    border: 1px solid $border-color;
-    padding: 3px;
-    margin: inherit;
-    margin-left: 3px;
+    &__cell {
+        float: left;
+        display: table-column;      
+        border: 1px solid $border-color;
+        padding: 3px;
+        margin: inherit;
+        margin-left: 3px;
+    
+        &_size {
+            &_small {
+                width: $table-small-width;
+            }
+    
+            &_medium{
+                width: $table-medium-width;
+            }
+        }
+    
+        &_text-align {
+            &_center {
+                text-align: center;
+            }
+    
+            &_right {
+                text-align: right;
+            }
+        }
+    }
 }

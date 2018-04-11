@@ -1,14 +1,16 @@
 @import "../../common/styles/base";
 
-.select-menu__select {
+.select-menu {
+    &__select {
     margin-left: 10px;
     margin-right: 10px;
-}
+    }
 
-.select-menu__text {
-    display: inline-block;
-}
+    &__text {
+        display: inline-block;
+    }
 
-.student-list__title-h2 {
-    text-align: center;
+    &__title-h2 {
+        text-align: center;
+    }
 }

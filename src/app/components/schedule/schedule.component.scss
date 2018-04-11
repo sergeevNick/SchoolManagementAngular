@@ -14,29 +14,32 @@
         width: auto;
         clear: both;
     }
-  }
 
-.schedule-table__row {
-    display: table-row;
-    width: auto;
-    clear: both;
-}
+    &__row {
+        display: table-row;
+        width: auto;
+        clear: both;
+    }
 
-.schedule-table__cell {
-    float: left;
-    display: table-column;         
-    width: 100px;         
-    border-top: 1px solid $border-color;
-    margin-bottom: 2%;
-
-    &_size {
-
-        &_small {
-            width: 40%;
-        }
-
-        &_medium {
-            width: 30%;
+    &__cell {
+        float: left;
+        display: table-column;         
+        padding: 3px;
+        border: 1px solid $border-color;
+        margin-bottom: 3px;
+    
+        &_size {
+            &_small {
+                width: 50px;
+            }
+    
+            &_medium {
+                width: 120px;
+            }
+    
+            &_long {
+                width: 200px;
+            }
         }
     }
 }
