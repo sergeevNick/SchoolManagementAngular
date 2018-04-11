@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GradeService } from '../../services/grade.service';
-import { ScheduleService } from '../../services/schedule.service';
+import { GradeService } from '../../services/grade/grade.service';
+import { ScheduleService } from '../../services/schedule/schedule.service';
 
 
 @Component({
@@ -27,7 +27,6 @@ export class ScheduleComponent implements OnInit {
 
     getSchedule() {
         this.scheduleService.getSchedule(this.selectedGradeId).then((schedules: any[]) => {
-            console.log(schedules);
             this.schedules = schedules;
         });
     }

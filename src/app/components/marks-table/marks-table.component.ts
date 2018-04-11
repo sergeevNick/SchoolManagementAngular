@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MarkService } from '../../services/mark.service';
+import { MarkService } from '../../services/mark/mark.service';
 
 class MarkStruct {
   subject: any;

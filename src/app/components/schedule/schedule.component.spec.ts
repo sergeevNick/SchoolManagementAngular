@@ -2,16 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScheduleComponent } from './schedule.component';
 import { FormsModule } from '@angular/forms';
-import { DataLoaderService } from '../../services/data-loader.service';
-import { MarkService } from '../../services/mark.service';
-import { SubjectService } from '../../services/subject.service';
-import { StudentService } from '../../services/student.service';
-import { GradeService } from '../../services/grade.service';
 import { MarksTableComponent } from '../marks-table/marks-table.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ScheduleService } from '../../services/schedule.service';
+import { GradeService } from '../../services/grade/grade.service';
+import { ScheduleService } from '../../services/schedule/schedule.service';
+import { DataLoaderService } from '../../services/data-loader/data-loader.service';
 
 describe('ScheduleComponent', () => {
     let component: ScheduleComponent;
@@ -27,11 +24,8 @@ describe('ScheduleComponent', () => {
                 FormsModule
             ],
             providers: [
-                ScheduleService,
                 GradeService,
-                StudentService,
-                SubjectService,
-                MarkService,
+                ScheduleService,
                 DataLoaderService
             ]
         })

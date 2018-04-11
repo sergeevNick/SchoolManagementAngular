@@ -2,16 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MarksTableComponent } from './marks-table.component';
 import { FormsModule } from '@angular/forms';
-import { DataLoaderService } from '../../services/data-loader.service';
-import { MarkService } from '../../services/mark.service';
-import { SubjectService } from '../../services/subject.service';
-import { StudentService } from '../../services/student.service';
-import { GradeService } from '../../services/grade.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ScheduleService } from '../../services/schedule.service';
 import { Input } from '@angular/core';
+import { MarkService } from '../../services/mark/mark.service';
+import { DataLoaderService } from '../../services/data-loader/data-loader.service';
 
 describe('MarksTableComponent', () => {
     let component: MarksTableComponent;
@@ -27,11 +23,7 @@ describe('MarksTableComponent', () => {
                 FormsModule
             ],
             providers: [
-                GradeService,
-                StudentService,
-                SubjectService,
                 MarkService,
-                ScheduleService,
                 DataLoaderService
             ]
         })

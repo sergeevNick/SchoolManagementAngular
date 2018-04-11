@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DataLoaderService } from './data-loader.service';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
+import { DataLoaderService } from '../../services/data-loader/data-loader.service';
 
 @Injectable()
 export class StudentService {
@@ -8,7 +8,7 @@ export class StudentService {
     constructor(private dataLoader: DataLoaderService) {
     }
 
-    getStudents(gradeId): Promise<any> {
+    getStudentsByGradeId(gradeId): Promise<any> {
         let apiURL = environment.urls.api + environment.urls.school.students.getStudentsByGradeId;
         apiURL = apiURL.replace(':gradeId', gradeId);
         return this.dataLoader.get(apiURL);

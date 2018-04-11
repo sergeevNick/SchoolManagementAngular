@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GradeService } from '../../services/grade.service';
-import { StudentService } from '../../services/student.service';
-import { SubjectService } from '../../services/subject.service';
-
-
+import { GradeService } from '../../services/grade/grade.service';
+import { StudentService } from '../../services/student/student.service';
+import { SubjectService } from '../../services/subject/subject.service';
 
 @Component({
     selector: 'app-student-list',
@@ -31,12 +29,12 @@ export class StudentListComponent implements OnInit {
     }
 
     getStudentsAndSubjects() {
-        this.studentService.getStudents(this.selectedGrade.gradeId).then((students: any[]) => {
+        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: any[]) => {
             this.students = students;
             this.selectedStudent = students[0];
         });
 
-        this.subjectService.getSubjects(this.selectedGrade.gradeId).then((subjects: any[]) => {
+        this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: any[]) => {
             this.subjects = subjects;
         });
     }

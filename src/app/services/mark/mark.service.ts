@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DataLoaderService } from './data-loader.service';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
+import { DataLoaderService } from '../../services/data-loader/data-loader.service';
 
 @Injectable()
 export class MarkService {

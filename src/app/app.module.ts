@@ -12,12 +12,12 @@ import { MarksTableComponent } from './components/marks-table/marks-table.compon
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SubmitMarkComponent } from './components/submit-mark/submit-mark.component';
-import { GradeService } from './services/grade.service';
-import { StudentService } from './services/student.service';
-import { SubjectService } from './services/subject.service';
-import { ScheduleService } from './services/schedule.service';
-import { MarkService } from './services/mark.service';
-import { DataLoaderService } from './services/data-loader.service';
+import { GradeService } from './services/grade/grade.service';
+import { StudentService } from './services/student/student.service';
+import { SubjectService } from './services/subject/subject.service';
+import { ScheduleService } from './services/schedule/schedule.service';
+import { MarkService } from './services/mark/mark.service';
+import { DataLoaderService } from './services/data-loader/data-loader.service';
 
 @NgModule({
     declarations: [
@@ -35,12 +35,14 @@ import { DataLoaderService } from './services/data-loader.service';
         CommonModule,
         FormsModule
     ],
-    providers: [GradeService,
+    providers: [
+        GradeService,
         StudentService,
         SubjectService,
         ScheduleService,
         MarkService,
-        DataLoaderService],
+        DataLoaderService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,21 +9,21 @@ export const environment = {
         api: 'http://localhost:4200/assets/data',
         school: {
             grades: {
-                getAll: '/grades.json'
+                getAll: '/grades/grades.json'
             },
             subjects: {
-                getSubjectsByGradeId: '/grades.:gradeId.subjects.json'
+                getSubjectsByGradeId: '/subjects/grades.:gradeId.subjects.json'
             },
             students: {
-                getStudentsByGradeId: '/grades.:gradeId.students.json'
+                getStudentsByGradeId: '/students/grades.:gradeId.students.json'
             },
             marks: {
-                getMarkByStudentIdAndSubjectId: '/marks.students.:studentId.subjects.:subjectId.json',
-                addMark: '/marks.students.:studentId.subjects.:subjectId.json',
-                deleteMarkByMarkId: '/marks.:markId.json'
+                getMarkByStudentIdAndSubjectId: '/marks/marks.students.:studentId.subjects.:subjectId.json',
+                addMark: '/marks/marks.added.json',
+                deleteMarkByMarkId: '/marks/marks.:markId.json'
             },
             schedule: {
-                getScheduleByClassId: '/grades.:gradeId.schedule.json'
+                getScheduleByClassId: '/schedule/grades.:gradeId.schedule.json'
             }
         }
     }
