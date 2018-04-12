@@ -1,12 +1,10 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-  <div class="container">
-      <a class="navbar-brand">Меню</a>
-      <ul class="nav navbar-nav" routerLinkActive="active">
-          <li class="nav-item"><a class="nav-link" routerLink="schedule">Расписание</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="marks">Просмотр оценок</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="marks/submit">Выставление оценок</a></li>
+<nav class="navbar">
+      <a class="navbar__title">Меню</a>
+      <ul class="navbar__menu" routerLinkActive="active">
+          <li class="navbar__item"><a class="navbar__link" routerLink="schedule">Расписание</a></li>
+          <li class="navbar__item"><a class="navbar__link" routerLink="marks">Просмотр оценок</a></li>
+          <li class="navbar__item"><a class="navbar__link" routerLink="marks/submit">Выставление оценок</a></li>
       </ul>
-  </div>
 </nav>
 
 <router-outlet></router-outlet>

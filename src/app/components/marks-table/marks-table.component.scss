@@ -1,14 +1,14 @@
 @import "../../common/styles/base";
 
 .marks-table {
-    display: table;         
-    width: auto;  
-    
+    display: table;
+    width: auto;
+
     &__head-row {
-        font-weight: bold;
         display: table-row;
         width: max-content;
-        clear: both; 
+        clear: both;
+        font-weight: bold;
     }
 
     &__row {
@@ -19,30 +19,20 @@
     }
 
     &__cell {
-        float: left;
-        display: table-column;      
+        display: table-column;
         border: 1px solid $border-color;
+        float: left;
         padding: 3px;
         margin: inherit;
         margin-left: 3px;
-    
+
         &_size {
             &_small {
                 width: $table-small-width;
             }
-    
-            &_medium{
+
+            &_medium {
                 width: $table-medium-width;
-            }
-        }
-    
-        &_text-align {
-            &_center {
-                text-align: center;
-            }
-    
-            &_right {
-                text-align: right;
             }
         }
     }

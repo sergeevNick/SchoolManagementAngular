@@ -5,14 +5,14 @@
 }
 
 .schedule-table {
-    display: table;         
-    width: auto;   
+    display: table;
+    width: auto;
 
     &__head-row {
-        font-weight: bold;
         display: table-row;
         width: auto;
         clear: both;
+        font-weight: bold;
     }
 
     &__row {
@@ -22,21 +22,21 @@
     }
 
     &__cell {
+        display: table-column;
         float: left;
-        display: table-column;         
         padding: 3px;
         border: 1px solid $border-color;
         margin-bottom: 3px;
-    
+
         &_size {
             &_small {
                 width: 50px;
             }
-    
+
             &_medium {
                 width: 120px;
             }
-    
+
             &_long {
                 width: 200px;
             }

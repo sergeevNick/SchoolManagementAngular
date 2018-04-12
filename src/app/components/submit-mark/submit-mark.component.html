@@ -46,7 +46,7 @@
             <div class="mark-table__cell marks-table__cell_size_medium">
                 {{selectedSubject.name}}
             </div>
-            <div class="mark-table__cell marks-table__cell_size_small marks-table__cell_text-align_center" *ngFor="let mark of marks">
+            <div class="mark-table__cell marks-table__cell_size_small" style="text-align: center;" *ngFor="let mark of marks">
                 {{mark.value}}
                 <button class="mark-table__delete-button" type="button" (click)="deleteMark(mark.markId)">x</button>
             </div>

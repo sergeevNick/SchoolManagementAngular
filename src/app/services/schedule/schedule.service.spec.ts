@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { ScheduleService } from './schedule.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';

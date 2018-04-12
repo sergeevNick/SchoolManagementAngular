@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MarkService } from './mark.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,25 +39,24 @@ describe('MarkService', () => {
         gradeService.getGrades().then(grades => {
             gradeList = grades;
             console.log('grades 1:', gradeList);
-        });
+            for (const grade of gradeList) {
+                studentService.getStudentsByGradeId(grade.gradeId).then((students: any) => {
+                    studentList = students;
+                });
+                subjectService.getSubjectsByGradeId(grade.gradeId).then((subjects: any) => {
+                    subjectList = subjects;
+                });
 
-        console.log('grades 2:', gradeList);
-        for (const grade of gradeList) {
-            studentService.getStudentsByGradeId(grade.gradeId).then((students: any) => {
-                studentList = students;
-            });
-            subjectService.getSubjectsByGradeId(grade.gradeId).then((subjects: any) => {
-                subjectList = subjects;
-            });
-
-            for (const student of studentList) {
-                for (const subject of subjectList) {
-                    service.getMarks(student.studentId, subject.subjectId).then(res => {
-                        expect(res).toBe('../marks/marks.students.' + student.studentId + '.subjects.' + subject.subjectId + '.json');
-                    });
+                for (const student of studentList) {
+                    for (const subject of subjectList) {
+                        service.getMarks(student.studentId, subject.subjectId).then(res => {
+                            expect(res).toBe('../marks/marks.students.' + student.studentId + '.subjects.' + subject.subjectId + '.json');
+                        });
+                    }
                 }
             }
-        }
+        });
+        console.log('grades 2:', gradeList);
     });
 
     it('#addMark should return new mark with value 5', () => {

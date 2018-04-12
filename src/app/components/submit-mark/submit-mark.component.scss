@@ -11,12 +11,12 @@
 }
 
 .marks-table {
-    display: table;         
-    width: auto;         
-    background-color: $marks-table-border-color;         
-    border: 1px solid $marks-table-background-color;         
+    display: table;
+    width: auto;
+    background-color: $marks-table-border-color;
+    border: 1px solid $marks-table-background-color;
     border-spacing: 5px;
-    
+
     &__head-row {
         display: table-row;
         width: auto;
@@ -30,28 +30,18 @@
     }
 
     &__cell {
+        display: inline-table;
+        background-color: $cell-background-color;
         float: left;
-        display: inline-table;      
-        margin: 1px; 
-        background-color: $cell-background-color;  
-       
+        margin: 1px;
+
         &_size {
             &_small {
                 width: $table-small-width;
             }
-    
+
             &_medium {
                 width: $table-medium-width;
-            }
-        }
-
-        &_text-align {
-            &_center {
-                text-align: center;
-            }
-    
-            &_right {
-                text-align: right;
             }
         }
     }

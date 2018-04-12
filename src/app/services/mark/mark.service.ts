@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { DataLoaderService } from '../../services/data-loader/data-loader.service';
+import { DataLoaderService } from '../data-loader/data-loader.service';
 
 @Injectable()
 export class MarkService {
@@ -8,22 +8,21 @@ export class MarkService {
     constructor(private dataLoader: DataLoaderService) {
     }
 
-    getMarks(studentId, subjectId): Promise<any> {
+    getMarks(studentId: Number, subjectId: Number): Promise<any> {
         let apiURL = environment.urls.api + environment.urls.school.marks.getMarkByStudentIdAndSubjectId;
-        apiURL = apiURL.replace(':studentId', studentId).replace(':subjectId', subjectId);
+        apiURL = apiURL.replace(':studentId', studentId.toString()).replace(':subjectId', subjectId.toString());
         return this.dataLoader.get(apiURL);
     }
 
-    addMark(studentId, subjectId, value): Promise<any> {
-        const body = JSON.stringify({ 'value': value });
+    addMark(studentId: Number, subjectId: Number, value: Number): Promise<any> {
         let apiURL = environment.urls.api + environment.urls.school.marks.addMark;
-        apiURL = apiURL.replace(':studentId', studentId).replace(':subjectId', subjectId);
-        return this.dataLoader.post(apiURL, body);
+        apiURL = apiURL.replace(':studentId', studentId.toString()).replace(':subjectId', subjectId.toString());
+        return this.dataLoader.post(apiURL, value);
     }
 
-    deleteMarkByMarkId(markId): Promise<any> {
+    deleteMarkByMarkId(markId: Number): Promise<any> {
         let apiURL = environment.urls.api + environment.urls.school.marks.deleteMarkByMarkId;
-        apiURL = apiURL.replace(':markId', markId);
+        apiURL = apiURL.replace(':markId', markId.toString());
         return this.dataLoader.delete(apiURL);
     }
 }
