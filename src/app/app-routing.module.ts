@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ScheduleComponent } from './components/schedule/schedule.component';
-import { StudentListComponent } from './components/student-list/student-list.component';
-import { SubmitMarkComponent } from './components/submit-mark/submit-mark.component';
+import { StudentSelectorComponent } from './components/student-selector/student-selector.component';
+import { SubjectSelectorComponent } from './components/subject-selector/subject-selector.component';
 
 const routes: Routes = [
   {
@@ -11,20 +11,20 @@ const routes: Routes = [
   },
   {
     path: 'marks',
-    component: StudentListComponent
+    component: StudentSelectorComponent
   },
   {
     path: 'marks/submit',
-    component: SubmitMarkComponent
+    component: SubjectSelectorComponent
   },
   {
     path: '',
-    redirectTo: '/schedules',
+    redirectTo: '/schedule',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/schedules',
+    redirectTo: '/schedule',
     pathMatch: 'full'
   }
 ];
