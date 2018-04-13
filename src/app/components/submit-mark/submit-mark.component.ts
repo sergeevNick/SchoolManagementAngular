@@ -3,6 +3,10 @@ import { GradeService } from '../../services/grade/grade.service';
 import { StudentService } from '../../services/student/student.service';
 import { SubjectService } from '../../services/subject/subject.service';
 import { MarkService } from '../../services/mark/mark.service';
+import { Student } from '../../entities/Student';
+import { Grade } from '../../entities/Grade';
+import { Subject } from '../../entities/Subject';
+import { Mark } from '../../entities/Mark';
 
 @Component({
     selector: 'app-submit-mark',
@@ -13,13 +17,13 @@ import { MarkService } from '../../services/mark/mark.service';
 export class SubmitMarkComponent implements OnInit {
     title = 'Выставление оценок';
 
-    selectedStudent: any;
-    selectedGrade: any;
-    selectedSubject: any;
-    grades: any[] = [];
-    students: any[] = [];
-    subjects: any[] = [];
-    marks: any[] = [];
+    selectedStudent: Student;
+    selectedGrade: Grade;
+    selectedSubject: Subject;
+    grades: Grade[] = [];
+    students: Student[] = [];
+    subjects: Subject[] = [];
+    marks: Mark[] = [];
 
     valuesOfMark: Number[] = [2, 3, 4, 5];
     selectedValue: Number;
@@ -28,18 +32,18 @@ export class SubmitMarkComponent implements OnInit {
         private studentService: StudentService,
         private subjectService: SubjectService,
         private markService: MarkService) {
-        this.gradeService.getGrades().then((grades: any[]) => {
+        this.gradeService.getGrades().then((grades: Grade[]) => {
             this.grades = grades;
         });
     }
 
     getStudentsAndSubjects() {
-        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: any[]) => {
+        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: Student[]) => {
             this.students = students;
             this.selectedStudent = students[0];
         });
 
-        this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: any[]) => {
+        this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
             this.subjects = subjects;
         });
     }
@@ -47,7 +51,7 @@ export class SubmitMarkComponent implements OnInit {
     getStudentMarks() {
         if (this.selectedSubject && this.selectedStudent) {
             this.markService.getMarks(this.selectedStudent.studentId, this.selectedSubject.subjectId)
-                .then((marks: any[]) => {
+                .then((marks: Mark[]) => {
                     this.marks = marks;
                 });
         }
@@ -62,7 +66,7 @@ export class SubmitMarkComponent implements OnInit {
         }
     }
 
-    deleteMark(selectedMarkId) {
+    deleteMark(selectedMarkId: Number) {
         this.markService.deleteMarkByMarkId(selectedMarkId)
             .then(res => {
                 this.marks = this.marks
@@ -72,5 +76,4 @@ export class SubmitMarkComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }

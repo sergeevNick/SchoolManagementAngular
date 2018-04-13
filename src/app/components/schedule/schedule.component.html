@@ -4,9 +4,10 @@
 
     <div class="schedule-class-menu">
         <p class="schedule-class-menu__text">Выберите класс</p>
-        <select class="schedule-class-menu__select" [(ngModel)]="selectedGradeId" (ngModelChange)="getSchedule()">
+        <select class="schedule-class-menu__select" [(ngModel)]="selectedGradeId"
+                (ngModelChange)="getScheduleByGradeId()">
             <ng-container *ngFor="let grade of grades">
-                <option class="schedule-class-menu__option" [value]="grade.gradeId">{{grade.number}}</option>
+                <option class="schedule-class-menu__option" [ngValue]="grade.gradeId">{{grade.number}}</option>
             </ng-container>
         </select>
     </div>
@@ -27,7 +28,9 @@
                 <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.lesson.startTime}}</div>
                 <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.lesson.endTime}}</div>
                 <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.subject.name}}</div>
-                <div class="schedule-table__cell schedule-table__cell_size_long">{{row.teacher.name.secondName}} {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}</div>
+                <div class="schedule-table__cell schedule-table__cell_size_long">{{row.teacher.name.secondName}}
+                    {{row.teacher.name.firstName}} {{row.teacher.name.lastName}}
+                </div>
                 <div class="schedule-table__cell schedule-table__cell_size_medium">{{row.subject.room}}</div>
             </div>
         </ng-container>

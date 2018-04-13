@@ -23,7 +23,7 @@ export const environment = {
                 deleteMarkByMarkId: '/marks/marks.:markId.json'
             },
             schedule: {
-                getScheduleByClassId: '/schedule/grades.:gradeId.schedule.json'
+                getScheduleByClassId: '/schedules/grades.:gradeId.schedule.json'
             }
         }
     }

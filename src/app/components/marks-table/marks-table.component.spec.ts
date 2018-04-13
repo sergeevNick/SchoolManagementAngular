@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { Input } from '@angular/core';
 import { MarkService } from '../../services/mark/mark.service';
 import { DataLoaderService } from '../../services/data-loader/data-loader.service';
 

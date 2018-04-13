@@ -19,12 +19,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/schedule',
+    redirectTo: '/schedules',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/schedule',
+    redirectTo: '/schedules',
     pathMatch: 'full'
   }
 ];

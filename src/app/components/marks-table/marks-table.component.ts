@@ -1,9 +1,12 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MarkService } from '../../services/mark/mark.service';
+import { Subject } from '../../entities/Subject';
+import { Mark } from '../../entities/Mark';
+import { Student } from '../../entities/Student';
 
 class MarkStruct {
-    subject: any;
-    marks: Array<any>;
+    subject: Subject;
+    marks: Array<Mark>;
 }
 
 @Component({
@@ -13,11 +16,9 @@ class MarkStruct {
 })
 
 export class MarksTableComponent implements OnInit, OnChanges {
-    @Input() student: any;
-    @Input() subjects: any[] = [];
+    @Input() student: Student;
+    @Input() subjects: Subject[] = [];
 
-    valuesOfMark: Number[] = [2, 3, 4, 5];
-    selectedValue: Number;
     public markStructList: Array<MarkStruct> = [];
 
     constructor(private markService: MarkService) {
@@ -33,7 +34,7 @@ export class MarksTableComponent implements OnInit, OnChanges {
                 for (const subject of this.subjects) {
                     const struct = new MarkStruct();
                     struct.subject = subject;
-                    this.markService.getMarks(this.student.studentId, subject.subjectId).then((marks: any[]) => {
+                    this.markService.getMarks(this.student.studentId, subject.subjectId).then((marks: Mark[]) => {
                         struct.marks = marks;
                     });
                     this.markStructList.push(struct);
