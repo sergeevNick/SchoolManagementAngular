@@ -33,31 +33,5 @@
         </div>
     </div>
 
-    <div class="marks-table" *ngIf="selectedSubject">
-        <div class="marks-table__head-row">
-            <div class="marks-table__cell marks-table__cell_size_medium">
-                Предмет
-            </div>
-            <div class="marks-table__cell marks-table__cell_size_small">
-                Оценки
-            </div>
-        </div>
-        <div class="marks-table__row">
-            <div class="mark-table__cell marks-table__cell_size_medium">
-                {{selectedSubject.name}}
-            </div>
-            <div class="mark-table__cell marks-table__cell_size_small" style="text-align: center;" *ngFor="let mark of marks">
-                {{mark.value}}
-                <button class="mark-table__delete-button" type="button" (click)="deleteMark(mark.markId)">x</button>
-            </div>
-            <div class="mark-table__cell">
-                <select class="mark-table__select" [(ngModel)]="selectedValue">
-                    <ng-container *ngFor="let value of valuesOfMark">
-                        <option class="mark-table__item" [ngValue]="value">{{value}}</option>
-                    </ng-container>
-                </select>
-                <button class="mark-table__add-button" type="button" (click)="addMark()">Выставить оценку</button>
-            </div>
-        </div>
-    </div>
+    <app-mark-edit [selectedStudent]="selectedStudent" [selectedSubject]="selectedSubject"></app-mark-edit>
 </div>

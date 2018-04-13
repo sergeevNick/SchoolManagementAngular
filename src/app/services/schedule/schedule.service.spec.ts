@@ -21,18 +21,18 @@ describe('ScheduleService', () => {
         });
     });
 
-    it('#getSchedule test case', () => {
+    it('#getScheduleByGradeId test case', () => {
         const service = TestBed.get(ScheduleService);
         for (let i = 1; i < 5; i++) {
-            service.getSchedule(1).then(res => {
+            service.getScheduleByGradeId(1).then(res => {
                 expect(res).toBe('../../assets/data/grades.1.schedule.json');
             });
         }
     });
 
-    it('#getSchedule schould return 404 Not Found when there is no url', () => {
+    it('#getScheduleByGradeId schould return 404 Not Found when there is no url', () => {
         const service = TestBed.get(ScheduleService);
-        service.getSchedule(100).catch((error: any) => {
+        service.getScheduleByGradeId(100).catch((error: any) => {
             expect(error.message).toContain('404 Not Found');
         });
     });

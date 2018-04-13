@@ -10,11 +10,11 @@ import { Mark } from '../../entities/Mark';
 
 @Component({
     selector: 'app-submit-mark',
-    templateUrl: './submit-mark.component.html',
-    styleUrls: ['./submit-mark.component.scss']
+    templateUrl: './subject-selector.component.html',
+    styleUrls: ['./subject-selector.component.scss']
 })
 
-export class SubmitMarkComponent implements OnInit {
+export class SubjectSelectorComponent implements OnInit {
     title = 'Выставление оценок';
 
     selectedStudent: Student;
@@ -37,6 +37,9 @@ export class SubmitMarkComponent implements OnInit {
         });
     }
 
+    ngOnInit() {
+    }
+
     getStudentsAndSubjects() {
         this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: Student[]) => {
             this.students = students;
@@ -50,7 +53,7 @@ export class SubmitMarkComponent implements OnInit {
 
     getStudentMarks() {
         if (this.selectedSubject && this.selectedStudent) {
-            this.markService.getMarks(this.selectedStudent.studentId, this.selectedSubject.subjectId)
+            this.markService.getMarksByStudentIdAndSubjectId(this.selectedStudent.studentId, this.selectedSubject.subjectId)
                 .then((marks: Mark[]) => {
                     this.marks = marks;
                 });
@@ -72,8 +75,5 @@ export class SubmitMarkComponent implements OnInit {
                 this.marks = this.marks
                     .filter(mark => mark.markId !== selectedMarkId);
             });
-    }
-
-    ngOnInit() {
     }
 }

@@ -19,20 +19,22 @@ export class DataLoaderService {
     }
 
     post(apiURL: string, value: Number): Promise<any> {
-        if (!isDevMode) {
+       if (!isDevMode) {
             const body = JSON.stringify({'value': value});
             return this.http.post(apiURL, body, this.httpOptions)
                 .toPromise().then(res => res);
         } else {
+            console.log('post method was replaced with get');
             return this.get(apiURL);
         }
     }
 
     delete(apiURL: string): Promise<any> {
         if (!isDevMode) {
-            return this.http.delete(apiURL)
-                .toPromise().then(res => res);
+        return this.http.delete(apiURL)
+            .toPromise().then(res => res);
         } else {
+            console.log('delete method was replaced with get');
             return this.get(apiURL);
         }
     }

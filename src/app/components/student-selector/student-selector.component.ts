@@ -8,10 +8,10 @@ import { Subject } from '../../entities/Subject';
 
 @Component({
     selector: 'app-student-list',
-    templateUrl: './student-list.component.html',
-    styleUrls: ['./student-list.component.scss']
+    templateUrl: './student-selector.component.html',
+    styleUrls: ['./student-selector.component.scss']
 })
-export class StudentListComponent implements OnInit {
+export class StudentSelectorComponent implements OnInit {
     title = 'Просмотр оценок';
 
     selectedStudent: Student;

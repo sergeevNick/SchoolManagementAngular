@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubmitMarkComponent } from './submit-mark.component';
+import { SubjectSelectorComponent } from './subject-selector.component';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,13 +11,13 @@ import { GradeService } from '../../services/grade/grade.service';
 import { SubjectService } from '../../services/subject/subject.service';
 import { StudentService } from '../../services/student/student.service';
 
-describe('SubmitMarkComponent', () => {
-    let component: SubmitMarkComponent;
-    let fixture: ComponentFixture<SubmitMarkComponent>;
+describe('SubjectSelectorComponent', () => {
+    let component: SubjectSelectorComponent;
+    let fixture: ComponentFixture<SubjectSelectorComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [SubmitMarkComponent],
+            declarations: [SubjectSelectorComponent],
             imports: [
                 BrowserModule,
                 HttpClientModule,
@@ -36,7 +36,7 @@ describe('SubmitMarkComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SubmitMarkComponent);
+        fixture = TestBed.createComponent(SubjectSelectorComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

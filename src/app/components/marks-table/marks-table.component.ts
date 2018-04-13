@@ -34,7 +34,7 @@ export class MarksTableComponent implements OnInit, OnChanges {
                 for (const subject of this.subjects) {
                     const struct = new MarkStruct();
                     struct.subject = subject;
-                    this.markService.getMarks(this.student.studentId, subject.subjectId).then((marks: Mark[]) => {
+                    this.markService.getMarksByStudentIdAndSubjectId(this.student.studentId, subject.subjectId).then((marks: Mark[]) => {
                         struct.marks = marks;
                     });
                     this.markStructList.push(struct);

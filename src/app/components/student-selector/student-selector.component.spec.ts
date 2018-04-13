@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { StudentListComponent } from './student-list.component';
+import { StudentSelectorComponent } from './student-selector.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,14 +11,14 @@ import { DataLoaderService } from '../../services/data-loader/data-loader.servic
 import { GradeService } from '../../services/grade/grade.service';
 import { SubjectService } from '../../services/subject/subject.service';
 
-describe('StudentListComponent', () => {
-    let component: StudentListComponent;
-    let fixture: ComponentFixture<StudentListComponent>;
+describe('StudentSelectorComponent', () => {
+    let component: StudentSelectorComponent;
+    let fixture: ComponentFixture<StudentSelectorComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             schemas: [NO_ERRORS_SCHEMA],
-            declarations: [StudentListComponent],
+            declarations: [StudentSelectorComponent],
             imports: [
                 BrowserModule,
                 HttpClientModule,
@@ -36,7 +36,7 @@ describe('StudentListComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(StudentListComponent);
+        fixture = TestBed.createComponent(StudentSelectorComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

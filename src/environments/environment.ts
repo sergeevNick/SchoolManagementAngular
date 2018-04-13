@@ -18,12 +18,12 @@ export const environment = {
                 getStudentsByGradeId: '/students/grades.:gradeId.students.json'
             },
             marks: {
-                getMarkByStudentIdAndSubjectId: '/marks/marks.students.:studentId.subjects.:subjectId.json',
+                getMarksByStudentIdAndSubjectId: '/marks/marks.students.:studentId.subjects.:subjectId.json',
                 addMark: '/marks/marks.added.json',
                 deleteMarkByMarkId: '/marks/marks.:markId.json'
             },
             schedule: {
-                getScheduleByClassId: '/schedules/grades.:gradeId.schedule.json'
+                getScheduleByGradeId: '/schedule/grades.:gradeId.schedule.json'
             }
         }
     }

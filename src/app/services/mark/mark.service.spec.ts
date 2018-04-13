@@ -28,7 +28,7 @@ describe('MarkService', () => {
         });
     });
 
-    it('#getMarks should return all marks by subject id from student', () => {
+    it('#getMarksByStudentIdAndSubjectId should return all marks by subject id from student', () => {
         const service = TestBed.get(MarkService);
         const gradeService = TestBed.get(GradeService);
         const studentService = TestBed.get(StudentService);
@@ -49,7 +49,7 @@ describe('MarkService', () => {
 
                 for (const student of studentList) {
                     for (const subject of subjectList) {
-                        service.getMarks(student.studentId, subject.subjectId).then(res => {
+                        service.getMarksByStudentIdAndSubjectId(student.studentId, subject.subjectId).then(res => {
                             expect(res).toBe('../marks/marks.students.' + student.studentId + '.subjects.' + subject.subjectId + '.json');
                         });
                     }
