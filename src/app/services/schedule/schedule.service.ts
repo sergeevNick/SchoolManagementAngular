@@ -10,8 +10,6 @@ export class ScheduleService {
     }
 
     getScheduleByGradeId(gradeId: Number): Promise<Schedule[]> {
-        let apiURL = environment.urls.api + environment.urls.school.schedule.getScheduleByGradeId;
-        apiURL = apiURL.replace(':gradeId', gradeId.toString());
-        return this.dataLoader.get(apiURL);
+        return this.dataLoader.get(environment.urls.school.schedule.getScheduleByGradeId, {gradeId: gradeId});
     }
 }

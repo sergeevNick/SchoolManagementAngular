@@ -9,7 +9,6 @@ export class GradeService {
     }
 
     getGrades(): Promise<any> {
-        const apiURL = environment.urls.api + environment.urls.school.grades.getAll;
-        return this.dataLoader.get(apiURL);
+        return this.dataLoader.get(environment.urls.school.grades.getAll);
     }
 }

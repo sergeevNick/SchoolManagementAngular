@@ -10,20 +10,16 @@ export class MarkService {
     }
 
     getMarksByStudentIdAndSubjectId(studentId: Number, subjectId: Number): Promise<Mark[]> {
-        let apiURL = environment.urls.api + environment.urls.school.marks.getMarksByStudentIdAndSubjectId;
-        apiURL = apiURL.replace(':studentId', studentId.toString()).replace(':subjectId', subjectId.toString());
-        return this.dataLoader.get(apiURL);
+        return this.dataLoader.get(environment.urls.school.marks.getMarksByStudentIdAndSubjectId,
+            {studentId: studentId, subjectId: subjectId});
     }
 
     addMark(studentId: Number, subjectId: Number, value: Number): Promise<Mark> {
-        let apiURL = environment.urls.api + environment.urls.school.marks.addMark;
-        apiURL = apiURL.replace(':studentId', studentId.toString()).replace(':subjectId', subjectId.toString());
-        return this.dataLoader.post(apiURL, value);
+        return this.dataLoader.post(environment.urls.school.marks.addMark, value,
+            {studentId: studentId, subjectId: subjectId});
     }
 
     deleteMarkByMarkId(markId: Number): Promise<Mark> {
-        let apiURL = environment.urls.api + environment.urls.school.marks.deleteMarkByMarkId;
-        apiURL = apiURL.replace(':markId', markId.toString());
-        return this.dataLoader.delete(apiURL);
+        return this.dataLoader.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: markId});
     }
 }

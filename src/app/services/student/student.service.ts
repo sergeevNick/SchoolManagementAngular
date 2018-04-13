@@ -10,8 +10,6 @@ export class StudentService {
     }
 
     getStudentsByGradeId(gradeId: Number): Promise<Student[]> {
-        let apiURL = environment.urls.api + environment.urls.school.students.getStudentsByGradeId;
-        apiURL = apiURL.replace(':gradeId', gradeId.toString());
-        return this.dataLoader.get(apiURL);
+        return this.dataLoader.get(environment.urls.school.students.getStudentsByGradeId, {gradeId: gradeId});
     }
 }

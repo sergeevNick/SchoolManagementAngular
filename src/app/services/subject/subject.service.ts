@@ -10,8 +10,6 @@ export class SubjectService {
     }
 
     getSubjectsByGradeId(gradeId: Number): Promise<Subject[]> {
-        let apiURL = environment.urls.api + environment.urls.school.subjects.getSubjectsByGradeId;
-        apiURL = apiURL.replace(':gradeId', gradeId.toString());
-        return this.dataLoader.get(apiURL);
+        return this.dataLoader.get(environment.urls.school.subjects.getSubjectsByGradeId, {gradeId: gradeId});
     }
 }
