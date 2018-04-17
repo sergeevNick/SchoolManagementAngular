@@ -1,32 +1,26 @@
 [
     {
-        "studentId": 6,
-        "name": {
-            "nameId": 6,
-            "firstName": "Николай",
-            "secondName": "Поляков",
-            "lastName": "Русланович"
-        },
-        "otherInfo": {
-            "infoId": 6,
-            "email": "email5",
-            "address": "СПб",
-            "birthDate": "1997-03-23"
-        }
+        "userId": 6,
+        "login": "login5",
+        "hash": "$2a$10$JOH/77ffecVQf3tF1PaY1etBkCD8pS5ZAFzdwMoXw6aKwx8QGOTYi",
+        "role": "STUDENT",
+        "firstName": "Игнатий",
+        "secondName": "Селезнёв",
+        "lastName": "Альвианович",
+        "email": "email5",
+        "address": "СПб",
+        "birthDate": "1997-03-23"
     },
     {
-        "studentId": 7,
-        "name": {
-            "nameId": 7,
-            "firstName": "Наталья",
-            "secondName": "Лазарева",
-            "lastName": "Прокловна"
-        },
-        "otherInfo": {
-            "infoId": 7,
-            "email": "email6",
-            "address": "СПб",
-            "birthDate": "1997-03-23"
-        }
+        "userId": 7,
+        "login": "login6",
+        "hash": "$2a$10$JOH/77ffecVQf3tF1PaY1etBkCD8pS5ZAFzdwMoXw6aKwx8QGOTYi",
+        "role": "STUDENT",
+        "firstName": "Николай",
+        "secondName": "Поляков",
+        "lastName": "Русланович",
+        "email": "email6",
+        "address": "СПб",
+        "birthDate": "1997-03-23"
     }
 ]

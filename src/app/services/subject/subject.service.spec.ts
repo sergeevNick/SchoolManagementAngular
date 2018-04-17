@@ -23,11 +23,9 @@ describe('SubjectService', () => {
 
     it('#getSubjects should return all subjects from grade', () => {
         const service = TestBed.get(SubjectService);
-        for (let i = 1; i < 5; i++) {
-            service.getSubjectsByGradeId(1).then(res => {
-                expect(res).toBe('../../assets/data/grades.1.subjects.json');
-            });
-        }
+        service.getSubjectsByGradeId(1).then(res => {
+            expect(res).toBe('../../assets/data/grades.1.subjects.json');
+        });
     });
 
     it('#getSubjects schould return 404 Not Found when there is no url', () => {

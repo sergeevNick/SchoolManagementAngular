@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { GradeService } from '../../services/grade/grade.service';
 import { StudentService } from '../../services/student/student.service';
 import { SubjectService } from '../../services/subject/subject.service';
-import { Student } from '../../entities/Student';
 import { Grade } from '../../entities/Grade';
 import { Subject } from '../../entities/Subject';
+import { User } from '../../entities/User';
 
 @Component({
     selector: 'app-student-list',
@@ -14,10 +14,10 @@ import { Subject } from '../../entities/Subject';
 export class StudentSelectorComponent implements OnInit {
     title = 'Просмотр оценок';
 
-    selectedStudent: Student;
+    selectedStudent: User;
     selectedGrade: Grade;
     grades: Grade[];
-    students: Student[];
+    students: User[];
     subjects: Subject[];
 
     constructor(private gradeService: GradeService,
@@ -32,7 +32,7 @@ export class StudentSelectorComponent implements OnInit {
     }
 
     getStudentsAndSubjects() {
-        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: Student[]) => {
+        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: User[]) => {
             this.students = students;
             this.selectedStudent = students[0];
         });

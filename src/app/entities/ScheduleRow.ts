@@ -1,14 +1,14 @@
 import { Lesson } from './Lesson';
-import { Teacher } from './Teacher';
 import { Subject } from './Subject';
+import { User } from './User';
 
 export class ScheduleRow {
     private _scheduleRowId: Number;
     private  _lesson: Lesson;
-    private  _teacher: Teacher;
+    private  _teacher: User;
     private  _subject: Subject;
 
-    constructor(scheduleRowId?: Number, lesson?: Lesson, teacher?: Teacher, subject?: Subject) {
+    constructor(scheduleRowId?: Number, lesson?: Lesson, teacher?: User, subject?: Subject) {
         this._scheduleRowId = scheduleRowId;
         this._lesson = lesson;
         this._teacher = teacher;
@@ -23,7 +23,7 @@ export class ScheduleRow {
         return this._lesson;
     }
 
-    get teacher(): Teacher {
+    get teacher(): User {
         return this._teacher;
     }
 
@@ -39,7 +39,7 @@ export class ScheduleRow {
         this._lesson = value;
     }
 
-    set teacher(value: Teacher) {
+    set teacher(value: User) {
         this._teacher = value;
     }
 

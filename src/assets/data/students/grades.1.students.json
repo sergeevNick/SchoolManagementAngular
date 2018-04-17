@@ -1,17 +1,14 @@
 [
     {
-        "studentId": 1,
-        "name": {
-            "nameId": 1,
-            "firstName": "Никита",
-            "secondName": "Сергеев",
-            "lastName": "Николаевич"
-        },
-        "otherInfo": {
-            "infoId": 1,
-            "email": "email",
-            "address": "СПб",
-            "birthDate": "1997-03-23"
-        }
+        "userId": 1,
+        "login": "login",
+        "hash": "$2a$10$JOH/77ffecVQf3tF1PaY1etBkCD8pS5ZAFzdwMoXw6aKwx8QGOTYi",
+        "role": "STUDENT",
+        "firstName": "Никита",
+        "secondName": "Сергеев",
+        "lastName": "Николаевич",
+        "email": "email",
+        "address": "СПб",
+        "birthDate": "1997-03-23"
     }
 ]

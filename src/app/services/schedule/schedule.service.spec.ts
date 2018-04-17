@@ -23,11 +23,9 @@ describe('ScheduleService', () => {
 
     it('#getScheduleByGradeId test case', () => {
         const service = TestBed.get(ScheduleService);
-        for (let i = 1; i < 5; i++) {
-            service.getScheduleByGradeId(1).then(res => {
-                expect(res).toBe('../../assets/data/grades.1.schedule.json');
-            });
-        }
+        service.getScheduleByGradeId(1).then(res => {
+            expect(res).toBe('http://localhost:4200/assets/data/grades.1.schedule.json');
+        });
     });
 
     it('#getScheduleByGradeId schould return 404 Not Found when there is no url', () => {

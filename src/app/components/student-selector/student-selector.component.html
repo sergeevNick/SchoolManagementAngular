@@ -17,7 +17,7 @@
             <select class="select-menu__select" [(ngModel)]="selectedStudent">
                 <ng-container *ngFor="let student of students">
                     <option class="select-menu__item" [ngValue]="student">
-                        {{student.name.secondName}} {{student.name.firstName}} {{student.name.lastName}}
+                        {{student.secondName}} {{student.firstName}} {{student.lastName}}
                     </option>
                 </ng-container>
             </select>

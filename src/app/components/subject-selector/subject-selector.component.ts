@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { GradeService } from '../../services/grade/grade.service';
 import { StudentService } from '../../services/student/student.service';
 import { SubjectService } from '../../services/subject/subject.service';
-import { MarkService } from '../../services/mark/mark.service';
-import { Student } from '../../entities/Student';
 import { Grade } from '../../entities/Grade';
 import { Subject } from '../../entities/Subject';
-import { Mark } from '../../entities/Mark';
+import { User } from '../../entities/User';
 
 @Component({
     selector: 'app-submit-mark',
@@ -17,21 +15,16 @@ import { Mark } from '../../entities/Mark';
 export class SubjectSelectorComponent implements OnInit {
     title = 'Выставление оценок';
 
-    selectedStudent: Student;
+    selectedStudent: User;
     selectedGrade: Grade;
     selectedSubject: Subject;
     grades: Grade[] = [];
-    students: Student[] = [];
+    students: User[] = [];
     subjects: Subject[] = [];
-    marks: Mark[] = [];
-
-    valuesOfMark: Number[] = [2, 3, 4, 5];
-    selectedValue: Number;
 
     constructor(private gradeService: GradeService,
-        private studentService: StudentService,
-        private subjectService: SubjectService,
-        private markService: MarkService) {
+                private studentService: StudentService,
+                private subjectService: SubjectService) {
         this.gradeService.getGrades().then((grades: Grade[]) => {
             this.grades = grades;
         });
@@ -41,7 +34,7 @@ export class SubjectSelectorComponent implements OnInit {
     }
 
     getStudentsAndSubjects() {
-        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: Student[]) => {
+        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: User[]) => {
             this.students = students;
             this.selectedStudent = students[0];
         });
@@ -49,31 +42,5 @@ export class SubjectSelectorComponent implements OnInit {
         this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
             this.subjects = subjects;
         });
-    }
-
-    getStudentMarks() {
-        if (this.selectedSubject && this.selectedStudent) {
-            this.markService.getMarksByStudentIdAndSubjectId(this.selectedStudent.studentId, this.selectedSubject.subjectId)
-                .then((marks: Mark[]) => {
-                    this.marks = marks;
-                });
-        }
-    }
-
-    addMark() {
-        if (this.selectedStudent && this.selectedSubject) {
-            this.markService.addMark(this.selectedStudent.studentId, this.selectedSubject.subjectId, this.selectedValue)
-                .then((res: any) => {
-                    this.marks.push(res);
-                });
-        }
-    }
-
-    deleteMark(selectedMarkId: Number) {
-        this.markService.deleteMarkByMarkId(selectedMarkId)
-            .then(res => {
-                this.marks = this.marks
-                    .filter(mark => mark.markId !== selectedMarkId);
-            });
     }
 }

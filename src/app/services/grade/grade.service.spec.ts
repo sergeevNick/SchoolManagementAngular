@@ -25,16 +25,16 @@ describe('GradeService', () => {
 
     it('#getGrades should return all grades', () => {
         const service = TestBed.get(GradeService);
-        console.log(service.getGrades());
+        /*console.log(service.getGrades());
         let out;
         service.getGrades().then(res =>
             out = res);
         console.log('out', out);
-        expect(out).toBe(22);
-        /*service.getGrades().then(res => {
+        expect(out).toBe(22);*/
+        service.getGrades().then(res => {
             console.log(res);
-           // expect(res).toBe('../data/grades/grades.json');
+            expect(res).toBe('http://localhost:4200/assets/data/grades/grades.json');
             expect(false).toEqual(true);
-        });*/
+        });
     });
 });

@@ -49,8 +49,9 @@ describe('MarkService', () => {
 
                 for (const student of studentList) {
                     for (const subject of subjectList) {
-                        service.getMarksByStudentIdAndSubjectId(student.studentId, subject.subjectId).then(res => {
-                            expect(res).toBe('../marks/marks.students.' + student.studentId + '.subjects.' + subject.subjectId + '.json');
+                        service.getMarksByStudentIdAndSubjectId(student.userId, subject.subjectId).then(res => {
+                            expect(res).toBe('http://localhost:4200/assets/data/marks/marks.students.' +
+                                student.userId + '.subjects.' + subject.subjectId + '.json');
                         });
                     }
                 }
@@ -66,14 +67,14 @@ describe('MarkService', () => {
         });
     });
 
-    it('#deleteMark schould return 404 Not Found when there is no url', () => {
+    it('#deleteMark should return 404 Not Found when there is no url', () => {
         const service = TestBed.get(MarkService);
         service.deleteMarkByMarkId(100).catch((error: any) => {
             expect(error.message).toContain('404 Not Found');
         });
     });
 
-    it('#addMark schould return 404 Not Found when there is no url', () => {
+    it('#addMark should return 404 Not Found when there is no url', () => {
         const service = TestBed.get(MarkService);
         expect(service.addMark(2, 2, 5).catch((error: any) => {
             error.message.toContain('404 Not Found');

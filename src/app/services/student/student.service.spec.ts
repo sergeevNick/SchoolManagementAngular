@@ -25,7 +25,7 @@ describe('StudentService', () => {
         const service = TestBed.get(StudentService);
         service.getStudentsByGradeId(1).then(res => {
             console.log('students', res);
-            expect(res).toBe('../data/grades.1.students.json');
+            expect(res).toBe('http://localhost:4200/assets/data/grades.1.students.json');
         });
     });
 

@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { MarkService } from '../../services/mark/mark.service';
 import { Subject } from '../../entities/Subject';
 import { Mark } from '../../entities/Mark';
-import { Student } from '../../entities/Student';
+import { User } from '../../entities/User';
 
 class MarkStruct {
     subject: Subject;
@@ -16,7 +16,7 @@ class MarkStruct {
 })
 
 export class MarksTableComponent implements OnInit, OnChanges {
-    @Input() student: Student;
+    @Input() student: User;
     @Input() subjects: Subject[] = [];
 
     public markStructList: Array<MarkStruct> = [];
@@ -34,8 +34,10 @@ export class MarksTableComponent implements OnInit, OnChanges {
                 for (const subject of this.subjects) {
                     const struct = new MarkStruct();
                     struct.subject = subject;
-                    this.markService.getMarksByStudentIdAndSubjectId(this.student.studentId, subject.subjectId).then((marks: Mark[]) => {
+                    console.log('pered func', this.student.userId);
+                    this.markService.getMarksByStudentIdAndSubjectId(this.student.userId, subject.subjectId).then((marks: Mark[]) => {
                         struct.marks = marks;
+                        console.log(this.student.userId);
                     });
                     this.markStructList.push(struct);
                 }

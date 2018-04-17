@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MarkService } from '../../services/mark/mark.service';
-import { Student } from '../../entities/Student';
 import { Subject } from '../../entities/Subject';
 import { Mark } from '../../entities/Mark';
+import { User } from '../../entities/User';
 
 @Component({
     selector: 'app-mark-edit',
@@ -10,7 +10,7 @@ import { Mark } from '../../entities/Mark';
     styleUrls: ['./mark-edit.component.scss']
 })
 export class MarkEditComponent implements OnInit, OnChanges {
-    @Input() selectedStudent: Student;
+    @Input() selectedStudent: User;
     @Input() selectedSubject: Subject;
 
     marks: Mark[] = [];
@@ -25,7 +25,7 @@ export class MarkEditComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         if (this.selectedSubject && this.selectedStudent) {
-            this.markService.getMarksByStudentIdAndSubjectId(this.selectedStudent.studentId, this.selectedSubject.subjectId)
+            this.markService.getMarksByStudentIdAndSubjectId(this.selectedStudent.userId, this.selectedSubject.subjectId)
                 .then((marks: Mark[]) => {
                     this.marks = marks;
                 });
@@ -34,7 +34,7 @@ export class MarkEditComponent implements OnInit, OnChanges {
 
     addMark() {
         if (this.selectedStudent && this.selectedSubject) {
-            this.markService.addMark(this.selectedStudent.studentId, this.selectedSubject.subjectId, this.selectedValue)
+            this.markService.addMark(this.selectedStudent.userId, this.selectedSubject.subjectId, this.selectedValue)
                 .then((res: any) => {
                     this.marks.push(res);
                 });
