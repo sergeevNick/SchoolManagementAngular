@@ -35,7 +35,7 @@ describe('MarksTableComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    test('should create marks-table-component', () => {
+        expect(component).toBeDefined();
     });
 });

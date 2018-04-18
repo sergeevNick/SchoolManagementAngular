@@ -1,37 +1,27 @@
-import { TestBed, inject } from '@angular/core/testing';
 import { SubjectService } from './subject.service';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { DataLoaderService } from '../data-loader/data-loader.service';
+
+class DataLoaderService {
+    get(apiUrl: string) {}
+}
 
 describe('SubjectService', () => {
+    let service: SubjectService;
+    let dataLoaderServiceStub: DataLoaderService;
+
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                BrowserModule,
-                HttpClientModule,
-                CommonModule,
-                FormsModule
-            ],
-            providers: [
-                DataLoaderService,
-                SubjectService]
-        });
+        dataLoaderServiceStub = new DataLoaderService();
+        service = new SubjectService(dataLoaderServiceStub);
     });
 
-    it('#getSubjects should return all subjects from grade', () => {
-        const service = TestBed.get(SubjectService);
-        service.getSubjectsByGradeId(1).then(res => {
-            expect(res).toBe('../../assets/data/grades.1.subjects.json');
-        });
+    test('should create an instance of SubjectService', () => {
+        expect(service).toBeDefined();
     });
 
-    it('#getSubjects schould return 404 Not Found when there is no url', () => {
-        const service = TestBed.get(SubjectService);
-        service.getSubjectsByGradeId(100).catch((error: any) => {
-            expect(error.message).toContain('404 Not Found');
+    describe('#getSubjectsByGradeId', () => {
+        test('should call DataLoaderService get method', () => {
+            const getSpy = jest.spyOn(dataLoaderServiceStub, 'get');
+            service.getSubjectsByGradeId(1);
+            expect(getSpy).toHaveBeenCalled();
         });
     });
 });

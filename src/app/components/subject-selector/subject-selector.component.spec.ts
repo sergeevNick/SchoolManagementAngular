@@ -18,17 +18,12 @@ describe('SubjectSelectorComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [SubjectSelectorComponent],
-            imports: [
-                BrowserModule,
-                HttpClientModule,
-                CommonModule,
-                FormsModule
-            ],
+            imports: [HttpClientModule,
+                FormsModule],
             providers: [
-                SubjectService,
-                StudentService,
                 GradeService,
-                MarkService,
+                StudentService,
+                SubjectService,
                 DataLoaderService
             ]
         })
@@ -41,7 +36,7 @@ describe('SubjectSelectorComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    test('should create subject-selector-component', () => {
+        expect(component).toBeDefined();
     });
 });

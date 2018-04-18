@@ -41,7 +41,7 @@ describe('StudentSelectorComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    test('should create student-selector-component', () => {
+        expect(component).toBeDefined();
     });
 });

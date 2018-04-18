@@ -24,29 +24,32 @@ export class DataLoaderService {
         return apiURL;
     }
 
+    makeBody(object: any): string {
+        return JSON.stringify(object);
+    }
+
     get(path: string, replaces?: any): Promise<any> {
         return this.http.get(this.makeUrl(path, replaces))
             .toPromise().then(res => res);
     }
 
-    post(apiURL: string, value: Number, replaces?: any): Promise<any> {
+    post(path: string, object: any, replaces?: any): Promise<any> {
         if (!isDevMode) {
-            const body = JSON.stringify({'value': value});
-            return this.http.post(apiURL, body, this.httpOptions)
+            return this.http.post(this.makeUrl(path, replaces), this.makeBody(object), this.httpOptions)
                 .toPromise().then(res => res);
         } else {
             console.log('post method was replaced with get');
-            return this.get(apiURL, replaces);
+            return this.get(path, replaces);
         }
     }
 
-    delete(apiURL: string, replaces: any): Promise<any> {
+    delete(path: string, replaces?: any): Promise<any> {
         if (!isDevMode) {
-            return this.http.delete(apiURL)
+            return this.http.delete(this.makeUrl(path, replaces))
                 .toPromise().then(res => res);
         } else {
             console.log('delete method was replaced with get');
-            return this.get(apiURL, replaces);
+            return this.get(path, replaces);
         }
     }
 }
