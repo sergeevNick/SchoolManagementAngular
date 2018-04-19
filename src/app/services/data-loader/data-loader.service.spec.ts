@@ -1,54 +1,22 @@
 import { HttpHeaders } from '@angular/common/http';
 import { DataLoaderService } from './data-loader.service';
 import { environment } from '../../../environments/environment';
-import { MockBackend } from '@angular/http/testing';
-import { BaseRequestOptions, Http } from '@angular/http';
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Observable } from 'rxjs/Observable';
 
 class HttpClient {
-    get(apiURL: string) {
-        return 'http://localhost:4200/assets/data' + apiURL;
-    }
-
-    post(apiURL: string, body: any, headers: { headers: HttpHeaders }) {
-        return 'http://localhost:4200/assets/data' + apiURL;
-    }
-
-    delete(apiURL: string) {
-        return 'http://localhost:4200/assets/data' + apiURL;
-    }
-}
-
-class Observable {
-    private apiURL: string;
-
-    constructor(apiURL: string) {
-        this.apiURL = apiURL;
-    }
-
-    toPromise() {
-        return new Promise(resolve => {
-            resolve(this.apiURL);
-        });
+    get(): Observable<any> {
+        return new Observable();
     }
 }
 
 describe('DataLoaderService', () => {
-    let service;
-    let httpMock: HttpTestingController;
+    let service: DataLoaderService;
+    let httpClientStub: HttpClient;
     let httpOptions: { headers: HttpHeaders };
 
     beforeEach(() => {
-        /*TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            providers: [DataLoaderService]
-        });
-
-        service = TestBed.get(DataLoaderService);
-        httpMock = TestBed.get(HttpClientTestingModule);*/
-        service = new DataLoaderService(new HttpClient());
+        httpClientStub = new HttpClient();
+        service = new DataLoaderService(httpClientStub);
         httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
@@ -83,23 +51,13 @@ describe('DataLoaderService', () => {
     });
 
     describe('#get', () => {
-        test('should return json', () => {
-            service.get(environment.urls.school.grades).then(res => {
-                expect(res).toBeNull();
-            })
-
-          //  const req = httpMock.expectOne('/grades');
-
-            // Assert that the request is a GET.
-          //  expect(req.request.method).toEqual('GET');
-
-            // Respond with mock data, causing Observable to resolve.
-            // Subscribe callback asserts that correct data was returned.
-
-            // Finally, assert that there are no outstanding requests.
-          //  httpMock.verify();
+        test('should call methods from HttpClient', () => {
+            // testing only get method from HttpClient due to dev mode
+            const getSpy = jest.spyOn(httpClientStub, 'get');
+            service.get(environment.urls.school.grades.getAll);
+            service.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, {value: 4});
+            service.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: 3});
+            expect(getSpy).toHaveBeenCalledTimes(3);
         });
-
-
     });
 });

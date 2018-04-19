@@ -16,7 +16,7 @@ export class MarkService {
 
     addMark(studentId: Number, subjectId: Number, value: Number): Promise<Mark> {
         const markValue = {value: value};
-        return this.dataLoader.post(environment.urls.school.marks.addMark, markValue,
+        return this.dataLoader.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, markValue,
             {studentId: studentId, subjectId: subjectId});
     }
 

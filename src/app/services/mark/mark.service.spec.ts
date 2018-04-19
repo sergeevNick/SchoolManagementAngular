@@ -31,7 +31,7 @@ describe('MarkService', () => {
         });
     });
 
-    describe('#addMark', () => {
+    describe('#addMarkByStudentIdAndSubjectId', () => {
         test('should call DataLoaderService post method', () => {
             const postSpy = jest.spyOn(dataLoaderServiceStub, 'post');
             service.addMark(1, 1, 5);

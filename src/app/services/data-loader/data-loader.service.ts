@@ -25,7 +25,7 @@ export class DataLoaderService {
     }
 
     makeBody(object: any): string {
-        return JSON.stringify(object);
+        if (object !== null) return JSON.stringify(object);
     }
 
     get(path: string, replaces?: any): Promise<any> {

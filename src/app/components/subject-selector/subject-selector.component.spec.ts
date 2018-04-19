@@ -10,6 +10,7 @@ import { DataLoaderService } from '../../services/data-loader/data-loader.servic
 import { GradeService } from '../../services/grade/grade.service';
 import { SubjectService } from '../../services/subject/subject.service';
 import { StudentService } from '../../services/student/student.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SubjectSelectorComponent', () => {
     let component: SubjectSelectorComponent;
@@ -25,7 +26,8 @@ describe('SubjectSelectorComponent', () => {
                 StudentService,
                 SubjectService,
                 DataLoaderService
-            ]
+            ],
+            schemas: [NO_ERRORS_SCHEMA]
         })
             .compileComponents();
     }));

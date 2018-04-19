@@ -15,7 +15,7 @@ export const environment = {
             },
             marks: {
                 getMarksByStudentIdAndSubjectId: '/marks/students/:studentId/subjects/:subjectId',
-                addMark: '/marks/students/:userId/subjects/:subjectId',
+                addMarkByStudentIdAndSubjectId: '/marks/students/:userId/subjects/:subjectId',
                 deleteMarkByMarkId: '/marks/:markId'
             },
             schedule: {
