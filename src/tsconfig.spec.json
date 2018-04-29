@@ -4,8 +4,8 @@
         "outDir": "../out-tsc/spec",
         "baseUrl": "./",
         "module": "commonjs",
+        "strict": true,
         "types": [
-            "jasmine",
             "node"
         ]
     },
