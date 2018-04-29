@@ -1,7 +1,7 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { HttpUtilities } from '../../utilities/HttpUtilities';
+
 
 @Injectable()
 export class DataLoaderService {
@@ -15,25 +15,36 @@ export class DataLoaderService {
         };
     }
 
-    get(path: string, replaces?: any): Promise<any> {
-        return this.http.get(HttpUtilities.makeUrl(path, replaces))
-            .toPromise().then(res => res);
+    static makeUrl(path: string, replaces?: any): string {
+        let apiURL = environment.urls.api + path;
+        for (const key in replaces) {
+            if (replaces.hasOwnProperty(key)) {
+                apiURL = apiURL.replace(':' + key.toString(), replaces[key].toString());
+            }
+        }
+        return apiURL;
     }
 
-    post(path: string, object: any, replaces?: any): Promise<any> {
+    static makeBody(object: any): string {
+        return JSON.stringify(object);
+    }
+
+    async get(path: string, replaces?: any): Promise<any> {
+        return await this.http.get(DataLoaderService.makeUrl(path, replaces));
+    }
+
+    async post(path: string, object: any, replaces?: any): Promise<any> {
         if (!isDevMode) {
-            return this.http.post(HttpUtilities.makeUrl(path, replaces), HttpUtilities.makeBody(object), this.httpOptions)
-                .toPromise().then(res => res);
+            return await this.http.post(DataLoaderService.makeUrl(path, replaces), DataLoaderService.makeBody(object), this.httpOptions);
         } else {
             console.log('post method was replaced with get');
             return this.get(path, replaces);
         }
     }
 
-    delete(path: string, replaces?: any): Promise<any> {
+    async delete(path: string, replaces?: any): Promise<any> {
         if (!isDevMode) {
-            return this.http.delete(HttpUtilities.makeUrl(path, replaces))
-                .toPromise().then(res => res);
+            return await this.http.delete(DataLoaderService.makeUrl(path, replaces));
         } else {
             console.log('delete method was replaced with get');
             return this.get(path, replaces);

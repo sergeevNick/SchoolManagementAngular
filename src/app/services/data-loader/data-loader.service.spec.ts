@@ -1,44 +1,57 @@
 import { DataLoaderService } from './data-loader.service';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs/Observable';
-import { HttpUtilities } from '../../utilities/HttpUtilities';
+import { HttpClient } from '@angular/common/http';
+import Mock = jest.Mock;
 
-class HttpClient {
-    get(): Observable<any> {
-        return new Observable();
-    }
-}
 
 describe('DataLoaderService', () => {
     let service: DataLoaderService;
-    let httpClientStub: HttpClient;
+    // TODO: Error: Cannot read property 'toPromise' of undefined. Make return type Observable or may be it should be fixed in other way.
+    const MockHttpClient = jest.fn<HttpClient>(() => ({
+        get: jest.fn()
+    }));
+    const httpClient = new MockHttpClient();
 
     beforeEach(() => {
-        httpClientStub = new HttpClient();
-        service = new DataLoaderService(httpClientStub);
+        service = new DataLoaderService(httpClient);
     });
 
-    test('should create an instance of DataLoaderService', () => {
+    it('should create an instance of DataLoaderService', () => {
         expect(service).toBeDefined();
     });
 
-    describe('#get', () => {
-        test('should call \'get\' method from HttpClient', () => {
-            // testing only get method from HttpClient due to dev mode
-            const getSpy = jest.spyOn(httpClientStub, 'get');
-            service.get(environment.urls.school.grades.getAll);
-            service.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, {value: 4});
-            service.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: 3});
-            expect(getSpy).toHaveBeenCalledTimes(3);
+    describe('#makeURL', () => {
+        it('should return url', () => {
+            expect(DataLoaderService.makeUrl(environment.urls.school.students.getStudentsByGradeId, {gradeId: 1}))
+                .toEqual('http://localhost:4200/assets/data/students/grades.1.students.json');
+            expect(DataLoaderService.makeUrl(environment.urls.school.grades.getAll))
+                .toEqual('http://localhost:4200/assets/data/grades/grades.json');
+            expect(DataLoaderService.makeUrl(environment.urls.school.marks.getMarksByStudentIdAndSubjectId, {studentId: 1, subjectId: 1}))
+                .toEqual('http://localhost:4200/assets/data/marks/marks.students.1.subjects.1.json');
         });
+    });
 
-        test('should call \'makeUrl\' method from HttpUtilities', () => {
+    describe('#makeBody', () => {
+        it('should return a body for request', () => {
+            expect(DataLoaderService.makeBody({value: 5}))
+                .toEqual('{"value":5}');
+            expect(DataLoaderService.makeBody({value: 5, date: '2018-03-03'}))
+                .toEqual('{"value":5,"date":"2018-03-03"}');
+            expect(DataLoaderService.makeBody({}))
+                .toEqual('{}');
+        });
+    });
+
+    describe('#get', () => {
+        it('should call \'get\' method from HttpClient', async () => {
             // testing only get method from HttpClient due to dev mode
-            const makeUrlSpy = jest.spyOn(HttpUtilities, 'makeUrl');
-            service.get(environment.urls.school.grades.getAll);
-            service.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, {value: 4});
-            service.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: 3});
-            expect(makeUrlSpy).toHaveBeenCalledTimes(3);
+            await service.get(environment.urls.school.grades.getAll);
+            await service.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, {value: 4});
+            await service.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: 3});
+            expect(httpClient.get).toHaveBeenCalledTimes(3);
+            expect((httpClient.get as Mock).mock.calls[0]).toEqual(['http://localhost:4200/assets/data/grades/grades.json']);
+            expect((httpClient.get as Mock).mock.calls[1]).toEqual(['http://localhost:4200/assets/data/marks/marks.added.json']);
+            expect((httpClient.get as Mock).mock.calls[2]).toEqual(['http://localhost:4200/assets/data/marks/marks.3.json']);
         });
     });
 });
