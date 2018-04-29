@@ -19,30 +19,30 @@ import { MarkService } from './services/mark/mark.service';
 import { DataLoaderService } from './services/data-loader/data-loader.service';
 import { MarkEditComponent } from './components/mark-edit/mark-edit.component';
 
+
 @NgModule({
     declarations: [
-        AppComponent,
+        MarkEditComponent,
+        MarksTableComponent,
         ScheduleComponent,
         StudentSelectorComponent,
         SubjectSelectorComponent,
-        MarksTableComponent,
-        MarkEditComponent
+        AppComponent
     ],
     imports: [
         AppRoutingModule,
         BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     providers: [
         DataLoaderService,
-        ScheduleService,
         GradeService,
+        MarkService,
+        ScheduleService,
         StudentService,
-        SubjectService,
-        MarkService
+        SubjectService
     ],
     bootstrap: [AppComponent]
 })
