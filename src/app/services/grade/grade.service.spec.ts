@@ -1,28 +1,29 @@
 import { GradeService } from './grade.service';
+import { DataLoaderService } from '../data-loader/data-loader.service';
+import Mock = jest.Mock;
 
-class DataLoaderService {
-    get(apiUrl: string) {
-    }
-}
 
 describe('GradeService', () => {
     let service: GradeService;
-    let dataLoaderServiceStub: DataLoaderService;
+    const MockDataLoaderService = jest.fn<DataLoaderService>(() => ({
+        get: jest.fn()
+    }));
+    const dataLoaderService = new MockDataLoaderService();
 
     beforeEach(() => {
-        dataLoaderServiceStub = new DataLoaderService();
-        service = new GradeService(dataLoaderServiceStub);
+        service = new GradeService(dataLoaderService);
     });
 
-    test('should create an instance of GradeService', () => {
+    it('should create an instance of GradeService', () => {
         expect(service).toBeDefined();
     });
 
     describe('#getGrades', () => {
-        test('should call DataLoaderService get method', () => {
-            const getSpy = jest.spyOn(dataLoaderServiceStub, 'get');
-            service.getGrades();
-            expect(getSpy).toHaveBeenCalled();
+        it('should send correct parameters to DataLoader method \'get\'', async () => {
+            await service.getGrades();
+            expect(dataLoaderService.get).toHaveBeenCalledTimes(1);
+            expect((dataLoaderService.get as Mock).mock.calls[0])
+                .toEqual(['/grades/grades.json']);
         });
     });
 });

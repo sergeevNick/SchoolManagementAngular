@@ -1,49 +1,49 @@
 import { MarkService } from './mark.service';
+import { DataLoaderService } from '../data-loader/data-loader.service';
+import Mock = jest.Mock;
 
-class DataLoaderService {
-    get(apiUrl: string) {
-    }
-
-    post(path: string, object: any) {
-    }
-
-    delete(apiUrl: string) {
-    }
-}
 
 describe('MarkService', () => {
     let service: MarkService;
-    let dataLoaderServiceStub: DataLoaderService;
+    const MockDataLoaderService = jest.fn<DataLoaderService>(() => ({
+        get: jest.fn(),
+        post: jest.fn(),
+        delete: jest.fn()
+    }));
+    const dataLoaderService = new MockDataLoaderService();
+
     beforeEach(() => {
-        dataLoaderServiceStub = new DataLoaderService();
-        service = new MarkService(dataLoaderServiceStub);
+        service = new MarkService(dataLoaderService);
     });
 
-    test('should create an instance of MarkService', () => {
+    it('should create an instance of MarkService', () => {
         expect(service).toBeDefined();
     });
 
     describe('#getMarksByStudentIdAndSubjectId', () => {
-        test('should call DataLoaderService get method', () => {
-            const getSpy = jest.spyOn(dataLoaderServiceStub, 'get');
-            service.getMarksByStudentIdAndSubjectId(1, 1);
-            expect(getSpy).toHaveBeenCalled();
+        it('should send correct parameters to DataLoader method \'get\'', async() => {
+            await service.getMarksByStudentIdAndSubjectId(1, 1);
+            expect(dataLoaderService.get).toHaveBeenCalledTimes(1);
+            expect((dataLoaderService.get as Mock).mock.calls[0])
+                .toEqual(['/marks/marks.students.:studentId.subjects.:subjectId.json', {'studentId': 1, 'subjectId': 1}]);
         });
     });
 
     describe('#addMarkByStudentIdAndSubjectId', () => {
-        test('should call DataLoaderService post method', () => {
-            const postSpy = jest.spyOn(dataLoaderServiceStub, 'post');
-            service.addMark(1, 1, 5);
-            expect(postSpy).toHaveBeenCalled();
+        it('should send correct parameters to DataLoader method \'post\'', async() => {
+            await service.addMark(1, 1, 5);
+            expect(dataLoaderService.post).toHaveBeenCalledTimes(1);
+            expect((dataLoaderService.post as Mock).mock.calls[0])
+                .toEqual(['/marks/marks.added.json', {'value': 5}, {'studentId': 1, 'subjectId': 1}]);
         });
     });
 
     describe('#deleteMarkByMarkId', () => {
-        test('should call DataLoaderService delete method', () => {
-            const deleteSpy = jest.spyOn(dataLoaderServiceStub, 'delete');
-            service.deleteMarkByMarkId(1);
-            expect(deleteSpy).toHaveBeenCalled();
+        it('should send correct parameters to DataLoader method \'delete\'', async() => {
+            await service.deleteMarkByMarkId(1);
+            expect(dataLoaderService.delete).toHaveBeenCalledTimes(1);
+            expect((dataLoaderService.delete as Mock).mock.calls[0])
+                .toEqual(['/marks/marks.:markId.json', {'markId': 1}]);
         });
     });
 });
