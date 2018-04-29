@@ -38,7 +38,7 @@ describe('SubjectSelectorComponent', () => {
         fixture.detectChanges();
     });
 
-    test('should create subject-selector-component', () => {
+    it('should create subject-selector-component', () => {
         expect(component).toBeDefined();
     });
 });

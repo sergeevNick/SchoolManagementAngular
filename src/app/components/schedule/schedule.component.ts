@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GradeService } from '../../services/grade/grade.service';
 import { ScheduleService } from '../../services/schedule/schedule.service';
-import { Grade } from '../../entities/Grade';
-import { Schedule } from '../../entities/Schedule';
+import { Grade } from '../../entities/grade';
+import { Schedule } from '../../entities/schedule';
 
 
 @Component({
@@ -10,21 +10,18 @@ import { Schedule } from '../../entities/Schedule';
     templateUrl: './schedule.component.html',
     styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent {
     title = 'Расписание';
 
-    selectedGradeId: Number;
+    selectedGradeId: number;
     grades: Grade[] = [];
     schedules: Schedule[];
 
     constructor(private gradeService: GradeService,
-        private scheduleService: ScheduleService) {
+                private scheduleService: ScheduleService) {
         this.gradeService.getGrades().then((grades: Grade[]) => {
             this.grades = grades;
         });
-    }
-
-    ngOnInit() {
     }
 
     getScheduleByGradeId() {

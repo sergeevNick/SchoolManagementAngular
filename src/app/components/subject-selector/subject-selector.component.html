@@ -14,7 +14,7 @@
 
         <div class="select-menu">
             <p class="select-menu__text">Выберите ученика</p>
-            <select class="select-menu__select" [(ngModel)]="selectedStudent" (ngModelChange)="getStudentMarks()">
+            <select class="select-menu__select" [(ngModel)]="selectedStudent">
                 <ng-container *ngFor="let student of students">
                     <option class="select-menu__item" [ngValue]="student">
                         {{student.secondName}} {{student.firstName}} {{student.lastName}}
@@ -25,7 +25,7 @@
 
         <div class="select-menu">
             <p class="select-menu__text">Выберите предмет</p>
-            <select class="select-menu__select" [(ngModel)]="selectedSubject" (ngModelChange)="getStudentMarks()">
+            <select class="select-menu__select" [(ngModel)]="selectedSubject">
                 <ng-container *ngFor="let subject of subjects">
                     <option class="select-menu__item" [ngValue]="subject">{{subject.name}}</option>
                 </ng-container>

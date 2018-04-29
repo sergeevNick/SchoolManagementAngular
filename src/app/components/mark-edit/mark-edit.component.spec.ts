@@ -30,7 +30,7 @@ describe('MarkEditComponent', () => {
         fixture.detectChanges();
     });
 
-    test('should create mark-edit-component', () => {
+    it('should create mark-edit-component', () => {
         expect(component).toBeDefined();
     });
 });

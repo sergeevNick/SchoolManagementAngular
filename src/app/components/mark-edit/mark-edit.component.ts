@@ -1,30 +1,28 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MarkService } from '../../services/mark/mark.service';
-import { Subject } from '../../entities/Subject';
-import { Mark } from '../../entities/Mark';
-import { User } from '../../entities/User';
+import { Subject } from '../../entities/subject';
+import { Mark } from '../../entities/mark';
+import { User } from '../../entities/user';
+
 
 @Component({
     selector: 'app-mark-edit',
     templateUrl: './mark-edit.component.html',
     styleUrls: ['./mark-edit.component.scss']
 })
-export class MarkEditComponent implements OnInit, OnChanges {
+export class MarkEditComponent implements OnChanges {
     @Input() selectedStudent: User;
     @Input() selectedSubject: Subject;
 
     marks: Mark[] = [];
-    valuesOfMark: Number[] = [2, 3, 4, 5];
-    selectedValue: Number;
+    valuesOfMark: number[] = [2, 3, 4, 5];
+    selectedValue: number;
 
     constructor(private markService: MarkService) {
     }
 
-    ngOnInit() {
-    }
-
     ngOnChanges(changes: SimpleChanges): void {
-        if (this.selectedSubject && this.selectedStudent) {
+        if (changes.selectedSubject && this.selectedStudent) {
             this.markService.getMarksByStudentIdAndSubjectId(this.selectedStudent.userId, this.selectedSubject.subjectId)
                 .then((marks: Mark[]) => {
                     this.marks = marks;
@@ -41,7 +39,7 @@ export class MarkEditComponent implements OnInit, OnChanges {
         }
     }
 
-    deleteMark(selectedMarkId: Number) {
+    deleteMark(selectedMarkId: number) {
         this.markService.deleteMarkByMarkId(selectedMarkId)
             .then(res => {
                 this.marks = this.marks

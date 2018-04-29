@@ -37,7 +37,7 @@ describe('ScheduleComponent', () => {
         fixture.detectChanges();
     });
 
-    test('should create schedule-component', () => {
+    it('should create schedule-component', () => {
         expect(component).toBeDefined();
     });
 });
