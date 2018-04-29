@@ -14,7 +14,7 @@
             "index": "index.html",
             "main": "main.ts",
             "polyfills": "polyfills.ts",
-            "test": "test.ts",
+            "it": "it.ts",
             "tsconfig": "tsconfig.app.json",
             "testTsconfig": "tsconfig.spec.json",
             "prefix": "app",
@@ -48,7 +48,7 @@
             "exclude": "**/node_modules/**"
         }
     ],
-    "test": {
+    "it": {
         "karma": {
             "config": "./karma.conf.js"
         }
