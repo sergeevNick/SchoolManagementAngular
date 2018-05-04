@@ -10,7 +10,7 @@ export class Mark {
     }
 
     get value(): number {
-        return this.value;
+        return this.markValue;
     }
 
     set value(value: number) {
