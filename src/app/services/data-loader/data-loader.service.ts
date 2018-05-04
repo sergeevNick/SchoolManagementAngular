@@ -29,22 +29,25 @@ export class DataLoaderService {
         return JSON.stringify(object);
     }
 
-    async get(path: string, replaces?: any): Promise<any> {
-        return await this.http.get(DataLoaderService.makeUrl(path, replaces));
+    get(path: string, replaces?: any): Promise<any> {
+        return this.http.get(DataLoaderService.makeUrl(path, replaces))
+            .toPromise().then(res => res);
     }
 
-    async post(path: string, object: any, replaces?: any): Promise<any> {
+    post(path: string, object: any, replaces?: any): Promise<any> {
         if (!isDevMode) {
-            return await this.http.post(DataLoaderService.makeUrl(path, replaces), DataLoaderService.makeBody(object), this.httpOptions);
+            return this.http.post(DataLoaderService.makeUrl(path, replaces), DataLoaderService.makeBody(object), this.httpOptions)
+                .toPromise().then(res => res);
         } else {
             console.log('post method was replaced with get');
             return this.get(path, replaces);
         }
     }
 
-    async delete(path: string, replaces?: any): Promise<any> {
+    delete(path: string, replaces?: any): Promise<any> {
         if (!isDevMode) {
-            return await this.http.delete(DataLoaderService.makeUrl(path, replaces));
+            return this.http.delete(DataLoaderService.makeUrl(path, replaces))
+                .toPromise().then(res => res);
         } else {
             console.log('delete method was replaced with get');
             return this.get(path, replaces);

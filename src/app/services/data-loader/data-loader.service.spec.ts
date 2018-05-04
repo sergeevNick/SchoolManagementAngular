@@ -2,11 +2,11 @@ import { DataLoaderService } from './data-loader.service';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import Mock = jest.Mock;
+import { Observable } from 'rxjs/Observable';
 
 
 describe('DataLoaderService', () => {
     let service: DataLoaderService;
-    // TODO: Error: Cannot read property 'toPromise' of undefined. Make return type Observable or may be it should be fixed in other way.
     const MockHttpClient = jest.fn<HttpClient>(() => ({
         get: jest.fn()
     }));
@@ -43,11 +43,11 @@ describe('DataLoaderService', () => {
     });
 
     describe('#get', () => {
-        it('should call \'get\' method from HttpClient', async () => {
+        it('should call \'get\' method from HttpClient', () => {
             // testing only get method from HttpClient due to dev mode
-            await service.get(environment.urls.school.grades.getAll);
-            await service.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, {value: 4});
-            await service.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: 3});
+            service.get(environment.urls.school.grades.getAll);
+            service.post(environment.urls.school.marks.addMarkByStudentIdAndSubjectId, {value: 4});
+            service.delete(environment.urls.school.marks.deleteMarkByMarkId, {markId: 3});
             expect(httpClient.get).toHaveBeenCalledTimes(3);
             expect((httpClient.get as Mock).mock.calls[0]).toEqual(['http://localhost:4200/assets/data/grades/grades.json']);
             expect((httpClient.get as Mock).mock.calls[1]).toEqual(['http://localhost:4200/assets/data/marks/marks.added.json']);
