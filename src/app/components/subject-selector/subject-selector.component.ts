@@ -29,13 +29,15 @@ export class SubjectSelectorComponent {
         });
     }
 
-    async getStudentsAndSubjects() {
-      //  this.selectedSubject = new Subject();
+    getStudentsAndSubjects() {
+        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: User[]) => {
+            this.students = students;
+            this.selectedStudent = this.students[0];
+        });
 
-        this.students = await this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId);
-        this.selectedStudent = this.students[0];
-
-        this.subjects = await this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId);
-        this.selectedSubject = this.subjects[0];
+        this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
+            this.subjects = subjects;
+            this.selectedSubject = this.subjects[0];
+        });
     }
 }
