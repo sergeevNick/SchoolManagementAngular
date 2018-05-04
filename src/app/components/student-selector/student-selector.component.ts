@@ -28,12 +28,12 @@ export class StudentSelectorComponent {
         });
     }
 
-    async getStudentsAndSubjects() {
-        await this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
+    getStudentsAndSubjects() {
+        this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
             this.subjects = subjects;
         });
 
-        await this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: User[]) => {
+        this.studentService.getStudentsByGradeId(this.selectedGrade.gradeId).then((students: User[]) => {
             this.students = students;
             this.selectedStudent = students[0];
         });
