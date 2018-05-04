@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 describe('DataLoaderService', () => {
     let service: DataLoaderService;
     const MockHttpClient = jest.fn<HttpClient>(() => ({
-        get: jest.fn()
+        get: jest.fn(() => new Observable())
     }));
     const httpClient = new MockHttpClient();
 
