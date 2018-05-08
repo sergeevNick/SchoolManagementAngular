@@ -37,7 +37,7 @@ export class SubjectSelectorComponent {
 
         this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
             this.subjects = subjects;
-            //this.selectedSubject = this.subjects[0];
+            this.selectedSubject = this.subjects[0];
         });
     }
 }
