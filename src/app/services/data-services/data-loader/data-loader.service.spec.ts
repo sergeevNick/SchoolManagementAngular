@@ -1,8 +1,8 @@
 import { DataLoaderService } from './data-loader.service';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import Mock = jest.Mock;
 import { Observable } from 'rxjs/Observable';
+import Mock = jest.Mock;
 
 
 describe('DataLoaderService', () => {

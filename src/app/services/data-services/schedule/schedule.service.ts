@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { DataLoaderService } from '../data-loader/data-loader.service';
-import { Schedule } from '../../entities/schedule';
+import { Schedule } from '../../../entities/schedule';
 
 
 @Injectable()
