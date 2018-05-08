@@ -10,6 +10,6 @@ export class Schedule {
     constructor(data: any = {}) {
         this.scheduleId = data.scheduleId || -1;
         this.day = data.day || new Day();
-        this.rows = data.rows || [new ScheduleRow()];
+        this.rows = data.rows || [];
     }
 }
