@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { MarkService } from '../../services/mark/mark.service';
-import { DataLoaderService } from '../../services/data-loader/data-loader.service';
+import { MarkService } from '../../services/data-services/mark/mark.service';
+import { DataLoaderService } from '../../services/data-services/data-loader/data-loader.service';
+import { JournalService } from '../../services/app-services/journal.service';
 
 describe('MarksTableComponent', () => {
     let component: MarksTableComponent;
@@ -22,8 +23,9 @@ describe('MarksTableComponent', () => {
                 FormsModule
             ],
             providers: [
+                DataLoaderService,
                 MarkService,
-                DataLoaderService
+                JournalService
             ]
         })
             .compileComponents();

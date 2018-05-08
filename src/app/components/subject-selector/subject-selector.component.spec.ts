@@ -5,11 +5,11 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { MarkService } from '../../services/mark/mark.service';
-import { DataLoaderService } from '../../services/data-loader/data-loader.service';
-import { GradeService } from '../../services/grade/grade.service';
-import { SubjectService } from '../../services/subject/subject.service';
-import { StudentService } from '../../services/student/student.service';
+import { MarkService } from '../../services/data-services/mark/mark.service';
+import { DataLoaderService } from '../../services/data-services/data-loader/data-loader.service';
+import { GradeService } from '../../services/data-services/grade/grade.service';
+import { SubjectService } from '../../services/data-services/subject/subject.service';
+import { StudentService } from '../../services/data-services/student/student.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SubjectSelectorComponent', () => {

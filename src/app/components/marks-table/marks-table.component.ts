@@ -1,14 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MarkService } from '../../services/mark/mark.service';
 import { Subject } from '../../entities/subject';
-import { Mark } from '../../entities/mark';
 import { User } from '../../entities/user';
+import { JournalService } from '../../services/app-services/journal.service';
+import { Journal } from '../../entities/journal';
 
-
-class MarkStruct {
-    subject: Subject;
-    marks: Mark[];
-}
 
 @Component({
     selector: 'app-marks-table',
@@ -19,23 +14,16 @@ export class MarksTableComponent implements OnChanges {
     @Input() student: User;
     @Input() subjects: Subject[] = [];
 
-    public markStructList: MarkStruct[] = [];
+    private journal: Journal;
 
-    constructor(private markService: MarkService) {
+    constructor(private journalService: JournalService) {
+        this.journal = new Journal();
     }
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.student) {
             if (this.student && this.subjects) {
-                this.markStructList = [];
-                for (const subject of this.subjects) {
-                    const struct = new MarkStruct();
-                    struct.subject = subject;
-                    this.markService.getMarksByStudentIdAndSubjectId(this.student.userId, subject.subjectId).then((marks: Mark[]) => {
-                        struct.marks = marks;
-                    });
-                    this.markStructList.push(struct);
-                }
+                this.journal = this.journalService.getJournal(this.subjects, this.student.userId);
             }
         }
     }

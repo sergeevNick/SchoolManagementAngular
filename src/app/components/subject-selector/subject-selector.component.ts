@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { GradeService } from '../../services/grade/grade.service';
-import { StudentService } from '../../services/student/student.service';
-import { SubjectService } from '../../services/subject/subject.service';
+import { GradeService } from '../../services/data-services/grade/grade.service';
+import { StudentService } from '../../services/data-services/student/student.service';
+import { SubjectService } from '../../services/data-services/subject/subject.service';
 import { Grade } from '../../entities/grade';
 import { Subject } from '../../entities/subject';
 import { User } from '../../entities/user';
@@ -37,7 +37,7 @@ export class SubjectSelectorComponent {
 
         this.subjectService.getSubjectsByGradeId(this.selectedGrade.gradeId).then((subjects: Subject[]) => {
             this.subjects = subjects;
-            this.selectedSubject = this.subjects[0];
+            //this.selectedSubject = this.subjects[0];
         });
     }
 }

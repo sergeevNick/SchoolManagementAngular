@@ -3,9 +3,9 @@
         <div class="marks-table__cell marks-table__cell_size_medium">Предмет</div>
         <div class="marks-table__cell">Оценки</div>
     </div>
-    <div class="marks-table__row" *ngFor="let struct of markStructList">
-        <div class="marks-table__cell marks-table__cell_size_medium">{{struct.subject.name}}</div>
+    <div class="marks-table__row" *ngFor="let journalItem of journal.journalItems">
+        <div class="marks-table__cell marks-table__cell_size_medium">{{journalItem.subject.name}}</div>
         <div class="marks-table__cell marks-table__cell_size_small" style="text-align: center"
-        *ngFor="let mark of struct.marks">{{mark.value}}</div>
+        *ngFor="let mark of journalItem.marks">{{mark.value}}</div>
     </div>
 </div>

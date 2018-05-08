@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GradeService } from '../../services/grade/grade.service';
-import { ScheduleService } from '../../services/schedule/schedule.service';
+import { GradeService } from '../../services/data-services/grade/grade.service';
+import { ScheduleService } from '../../services/data-services/schedule/schedule.service';
 import { Grade } from '../../entities/grade';
 import { Schedule } from '../../entities/schedule';
 

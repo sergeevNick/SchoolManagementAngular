@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MarkService } from '../../services/mark/mark.service';
+import { MarkService } from '../../services/data-services/mark/mark.service';
 import { Subject } from '../../entities/subject';
 import { Mark } from '../../entities/mark';
 import { User } from '../../entities/user';

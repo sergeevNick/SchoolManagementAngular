@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { GradeService } from '../../services/grade/grade.service';
-import { ScheduleService } from '../../services/schedule/schedule.service';
-import { DataLoaderService } from '../../services/data-loader/data-loader.service';
+import { GradeService } from '../../services/data-services/grade/grade.service';
+import { ScheduleService } from '../../services/data-services/schedule/schedule.service';
+import { DataLoaderService } from '../../services/data-services/data-loader/data-loader.service';
 
 describe('ScheduleComponent', () => {
     let component: ScheduleComponent;
