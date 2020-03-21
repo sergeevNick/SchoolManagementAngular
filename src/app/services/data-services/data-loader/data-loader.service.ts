@@ -1,7 +1,6 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-
 
 @Injectable()
 export class DataLoaderService {
@@ -35,22 +34,22 @@ export class DataLoaderService {
     }
 
     post(path: string, object: any, replaces?: any): Promise<any> {
-        if (!isDevMode) {
-            return this.http.post(DataLoaderService.makeUrl(path, replaces), DataLoaderService.makeBody(object), this.httpOptions)
-                .toPromise().then(res => res);
-        } else {
+        if (!environment.production) {
             console.log('post method was replaced with get');
             return this.get(path, replaces);
         }
+
+        return this.http.post(DataLoaderService.makeUrl(path, replaces), DataLoaderService.makeBody(object), this.httpOptions)
+            .toPromise().then(res => res);
     }
 
     delete(path: string, replaces?: any): Promise<any> {
-        if (!isDevMode) {
-            return this.http.delete(DataLoaderService.makeUrl(path, replaces))
-                .toPromise().then(res => res);
-        } else {
+        if (!environment.production) {
             console.log('delete method was replaced with get');
             return this.get(path, replaces);
         }
+
+        return this.http.delete(DataLoaderService.makeUrl(path, replaces))
+            .toPromise().then(res => res);
     }
 }

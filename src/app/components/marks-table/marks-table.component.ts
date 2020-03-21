@@ -14,7 +14,7 @@ export class MarksTableComponent implements OnChanges {
     @Input() student: User;
     @Input() subjects: Subject[] = [];
 
-    private journal: Journal;
+    journal: Journal;
 
     constructor(private journalService: JournalService) {
         this.journal = new Journal();
